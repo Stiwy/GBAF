@@ -1,13 +1,10 @@
-<?php 
-$title = 'GBAF | S\'inscrire'; 
-$form = 'public/css/form.css';
-?>
+<?php $title = 'GBAF | S\'inscrire'; ?>
 
 <?php ob_start(); ?>
     <?php require('model/include/flash.php'); ?>
 
     <h1 id="title_form">S'inscrire</h1>
-    <p id="p_form">Inscrivez-vous pour acceder à l'éspace extranet</p>
+    <p id="sub_title">Inscrivez-vous pour acceder à l'éspace extranet</p>
     
     <?php
         if (isset($errors)){
@@ -55,7 +52,7 @@ $form = 'public/css/form.css';
         <input type="checkbox" name="cg" id="checkbox">
         <label for="checkbox" class="checkbox">Confirmez avoir lu et accepté les <a href="#">conditions d'utilisation</a>.</label>
 
-        <div class="col-12"><button id="btn_form" type="submit">S'inscrire</button></div> 
+        <div class="col-12"><button id="btn_primary" type="submit">S'inscrire</button></div> 
     </form>
 <?php $content = ob_get_clean(); ?>
 

@@ -1,0 +1,23 @@
+#sub_title {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+#btn_primary{
+    background-color: red;
+    color: lightgray;
+    border: 1px solid red;
+    font-size: 1.4em;
+    padding: 5px 5px 5px 5px;
+    margin-left: 25px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#btn_primary:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+    transition-delay: 0.2;
+}

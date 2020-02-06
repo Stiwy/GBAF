@@ -97,10 +97,16 @@ class MemberManager extends Manager
     public function loginMember($username, $password) 
     {
         $db = $this->dbConnect();
+        session_start();
+
+        setlocale(LC_TIME, 'fr');
         $req = $db->prepare('SELECT * FROM account WHERE username = ?');
         $req->execute(array($username));
         $user = $req->fetch();
-        session_start();
+
+        $var = utf8_encode(ucfirst(strftime('%A %d ' ,strtotime($user['registration_date']))));
+        $var .= utf8_encode(ucfirst(strftime('%B %Y' ,strtotime($user['registration_date']))));
+        $_SESSION['date_fr'] = $var;
 
         if (password_verify($password, $user['password'])) {
             $_SESSION['auth'] = $user;
@@ -224,7 +230,7 @@ class MemberManager extends Manager
                     if (isset($avatar) AND !empty($nameavatar)) {
 
                         $maxsize = 2097152;
-                        $extensions = array('jpg', 'jpeg', 'gif', 'png');
+                        $extensions = array('jpg', 'jpeg', 'gif', 'png', 'jfif');
                         if ($sizeavatar <= $maxsize) {
 
                             $extensionsUpload = strtolower(substr(strrchr($nameavatar, '.'), 1));

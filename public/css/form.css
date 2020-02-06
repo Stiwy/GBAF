@@ -65,20 +65,3 @@ label {
 tr {
     margin-bottom: 20px;
 }
-
-#btn_form {
-    background-color: red;
-    color: lightgray;
-    border: 1px solid red;
-    font-size: 1.4em;
-    width: 150px;
-    height: 50px;
-    margin-left: 25px;
-}
-
-#btn_form:hover {
-    background-color: white;
-    color: red;
-    border: 2px solid red;
-    transition-delay: 0.2;
-}

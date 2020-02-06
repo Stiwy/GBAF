@@ -1,0 +1,40 @@
+section {
+    margin-top: 40px;
+}
+
+#show_profile, #about, #account_information {
+    border: lightslategray 1px solid;
+    box-shadow: lightslategray 3px 3px 3px;
+    padding: 10px 10px 10px 10px;
+    width: 100%;
+    margin: 30px 0 0 0;
+}
+
+#show_profile_avatar img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50px;
+}
+
+#show_profile_user{
+    margin-left: 50px;
+}
+
+#username {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+#details {
+    font-size: 1.1em;
+}
+
+div > h2 {
+    font-size: 1.7em;
+    margin-bottom: 20px;
+    text-decoration: underline lightslategray;
+}
+
+.span_account {
+    font-weight: bold;
+}
