@@ -20,4 +20,5 @@
     color: red;
     border: 2px solid red;
     transition-delay: 0.2;
+    box-shadow: lightslategray 2px 2px 6px;
 }
