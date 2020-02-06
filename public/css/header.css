@@ -55,7 +55,7 @@ header {
     margin-right: 15px;
 }
 
-#menu > ul > li > a:hover {
+#nav_connect > a:hover {
     font-size: 1.1em;
     border-top: 2px solid red;
     text-decoration: none;

@@ -14,7 +14,7 @@
                 <img src="public/image/avatar/<?php echo $_SESSION['auth']['avatar']?>" alt="Photo de profil">
             </div>
             <div id="show_profile_user">
-                <p id="username"><?= $_SESSION['auth']['username'] ?></p>
+                <p id="username_account"><?= $_SESSION['auth']['username'] ?></p>
                 <p id="details">Utilisateur du sérvice GBAF</p>
             </div>
         </div>

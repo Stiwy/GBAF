@@ -18,7 +18,7 @@
         <nav id="menu">
             <ul class="row align-items-center justify-content-between">
                 <li><a href="index.php"><img id="logo_header" src="public/image/logo_gbaf.png"></a></li>
-                <li>
+                <li id="nav_connect">
                     <a href="index.php?action=account">Mon profil</a>
                     <a href="index.php?action=logout">Déconnexion</a>
                 </li>
