@@ -10,29 +10,53 @@ header {
     width: 75px;
 }
 
+#menu ul {
+    list-style: none;
+}
+
+/*-----Is connect-----*/
+
 #auth_avatar {
     width: 50px;
     height: 50px;
     border-radius: 50px;
 }
 
-#menu ul {
-    list-style: none;
-}
-
 #menu ul li:hover #sub_menu {
     visibility: visible;
     background-color: lightgray;
     border-bottom: 1px red solid;
+    transition-delay: 0.1s;
 }
 
 #sub_menu {
     flex-direction: column;
     visibility: hidden;
     position: absolute;
+    z-index: 1;
     padding: 10px 40px 10px 40px;
 }
 
 #sub_menu li a{
     color: black;
+}
+
+#sub_menu li a:hover{
+    padding-left: 10px;
+    border-left: 1px solid red;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+/*-----Is not connect-----*/
+
+#menu li a {
+    color: black;
+    margin-right: 15px;
+}
+
+#menu > ul > li > a:hover {
+    font-size: 1.1em;
+    border-top: 2px solid red;
+    text-decoration: none;
 }
