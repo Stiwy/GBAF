@@ -1,0 +1,94 @@
+#acteur {
+    border: 1px solid lightslategray;
+    box-shadow: lightslategray 3px 3px 3px;
+    margin-bottom: 35px;
+    padding: 5px 150px 5px 150px;
+}
+
+#acteur:hover {
+    border: 1px solid red;
+    box-shadow: red 3px 3px 3px;
+    background-color: rgba(255, 255, 255, 0.87);
+    width: 100%;
+    margin-top: 50px;
+}
+
+#acteur > p > img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    display: block;
+    width: 250px;
+}
+
+#acteur_section {
+    margin-top: 0;
+}
+
+#acteur_page > img {
+ width: 100%;
+ max-height: 400px;
+}
+
+#form_comment {
+    display: flex;
+    border-bottom: 2px solid lightslategrey;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+}
+
+.form_comment_label {
+    margin: 0px;
+    padding: 0px;
+}
+
+#btn_form_comment {
+    border: 1px solid red;
+    background: red;
+    border-radius: 5px;
+    color: white;
+}
+
+#post{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    border: none;
+    background-color: whitesmoke;
+}
+
+#comment {
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightslategray;
+    display: flex;
+    background-color: whitesmoke;
+}
+
+#comment_col-1 {
+    text-align: center;
+    width: 100px;
+    padding: 10px 5px 10px 5px;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+#comment_col-1 > p {
+    margin: 5px 0px 0px 0px;
+    padding: 0px;
+}
+
+#comment_col-2 {
+    width: 100%;
+}
+
+#post_comment  {
+    margin: 25px 0px 0px 10px;
+}
+
+#comment_date {
+    margin-left: 75%;
+}
