@@ -68,6 +68,7 @@ if (isset($_GET['action'])){
                 $_SESSION['flash']['danger'] = "Veuillez vous connectez !";
                 header('location: index.php');
             }
+
         }else {
             require('view/frontend/resetPasswordView.php');
         }
@@ -92,11 +93,52 @@ if (isset($_GET['action'])){
             header('Location: index.php');
         }
         
-    }else {
+    }elseif ($_GET['action'] == 'listacteurs') {
+        if (isset($_SESSION['auth'])){
+            listActeurs();
+        }else {
+            $_SESSION['flash']['danger'] = "Veuillez vous connectez !";
+            header('location: index.php');
+        }
+
+    }elseif ($_GET['action'] == 'acteur') {
+        if (isset($_SESSION['auth'])){
+            if (isset($_GET['id_acteur']) && $_GET['id_acteur'] > 0) {
+                acteur();
+            }else {
+                $_SESSION['flash']['danger'] = "Acteur inexistant !";
+                header('Location: index.php');
+            }
+        }else {
+            $_SESSION['flash']['danger'] = "Veuillez vous connectez !";
+            header('location: index.php');
+        }
+
+    }elseif ($_GET['action'] == 'addcomment') {
+        if (isset($_GET['id_acteur']) && $_GET['id_acteur'] > 0) {
+            if (!empty($_POST['post'])) {
+                comment($_SESSION['auth']['id_user'], $_GET['id_acteur'], $_POST['post']);
+            }
+            else {
+                $_SESSION['flash']['danger'] = "Veuillez remplir tout les champs du formulaire !";
+                header('Location: index.php?action=acteur&id_acteur=' .  $_GET['id_acteur']);
+            }
+        }
+        else {
+            $_SESSION['flash']['danger'] = "Acteur inexistant !";
+            header('location: index.php');
+        }
+    }
+    
+    else {
         require('view/frontend/loginView.php');
     }
    
 }else {
-    require('view/frontend/loginView.php'); 
+    if (isset($_SESSION['auth'])) {
+        listActeurs();
+    }else {
+        require('view/frontend/loginView.php'); 
+    }    
 }
 
