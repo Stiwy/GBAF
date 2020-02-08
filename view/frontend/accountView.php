@@ -1,4 +1,4 @@
-<?php $title = 'GBAF | ' . $_SESSION['auth']['username']; ?>
+<?php $title = 'GBAF | Profil'; ?>
 
 <?php ob_start(); ?>
     <?php require('model/include/flash.php'); ?>
