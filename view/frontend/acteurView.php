@@ -14,6 +14,17 @@
         </section>
 
         <section class="container">
+            
+            <div class="row justify-content-between">
+                <div id="title_comment">
+                    <h2>Partager votre avis !</h2>
+                </div>
+                <div id="vote" class="row">
+                    <p class="col-6"><a href="index.php?action=addvote&amp;vote=1&amp;id_acteur=<?= $acteur['id_acteur'] ?>"><img src="public/image/icons/<?= $greenLikes ?>" alt=""> <?= $getLikes ;?></a></p>
+                    <p class="col-6"><a href="index.php?action=addvote&amp;vote=2&amp;id_acteur=<?= $acteur['id_acteur'] ?>"><img src="public/image/icons/<?= $redDislikes ?>" alt=""> <?= $getDisLikes ;?></a></p>
+                </div>  
+            </div>
+            
 
             <form action="index.php?action=addcomment&amp;id_acteur=<?= $acteur['id_acteur'] ?>" method="post">
             

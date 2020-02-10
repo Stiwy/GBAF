@@ -1,38 +1,8 @@
 <?php
 require_once("model/Manager.php");
 
-class CommentManager extends Manager
+class VoteManager extends Manager
 {
-    public function addComment($id_user, $id_acteur, $post)
-    {
-        $db = $this->dbConnect();
-        $newComment = htmlentities($post);
-
-        $req = $db->prepare('INSERT INTO post(id_user, id_acteur, date_add, post) VALUE(?, ?, Now(), ?)');
-        $addComment = $req->execute(array($id_user, $id_acteur, $post));
-
-        $_SESSION['flash']['success'] = "Votre commentaire à bien était posté !";
-        header('Location: index.php?action=acteur&id_acteur=' . $id_acteur);
-
-        return $addComment;
-    }
-
-    public function getComment($id_acteur)
-    {
-        $db = $this->dbConnect();
-        setlocale(LC_TIME, 'fr');
-
-        $req = $db->prepare('SELECT p.id_post, p.post, p.date_add, a.username, a.avatar FROM account a INNER JOIN post p ON p.id_user = a.id_user WHERE id_acteur = ? ORDER BY p.date_add DESC');
-        $req->execute(array($id_acteur));
-        $comment = $req->fetch();
-
-        $var = utf8_encode(ucfirst(strftime('%A %d ' ,strtotime($comment['date_add']))));
-        $var .= utf8_encode(ucfirst(strftime('%B %Y' ,strtotime($comment['date_add']))));
-        $_SESSION['comment_date_fr'] = $var;
-        
-        return $req;
-    }
-
     public function addVote($vote, $id_acteur, $id_user)
     {   
         $db = $this->dbConnect();
@@ -97,10 +67,6 @@ class CommentManager extends Manager
                     $ins = $db->prepare('INSERT INTO vote(id_user, id_acteur, vote) VALUE(?, ?, ?)');
                     $ins->execute(array($id_user, $id_acteur, $vote));
 
-                    session_start();
-
-                    $_SESSION['vote']['Dislike'] = "Dislike_red.png";
-
                     $_SESSION['flash']['success'] = "Vous avez ajouter un je n'aime pas à cette article !";
                     header('Location: index.php?action=acteur&id_acteur=' . $id_acteur);
                 }
@@ -137,5 +103,43 @@ class CommentManager extends Manager
         $getDisLikes = $reqDisLikes->rowCount();
 
         return $getDisLikes;
+    }
+
+    public function greenLikes($id_acteur)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT * FROM vote WHERE id_acteur = ?');
+        $req->execute(array($id_acteur));
+        $reqLikes = $req->fetch();
+
+        if ($reqLikes['vote'] == 1) {
+            $greenLikes = "Like_green.png";
+
+            return $greenLikes;
+        }else {
+            $greenLikes = "Like.png";
+
+            return $greenLikes;
+        }
+    }
+
+    public function redDislikes($id_acteur)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT * FROM vote WHERE id_acteur = ?');
+        $req->execute(array($id_acteur));
+        $reqLikes = $req->fetch();
+
+        if ($reqLikes['vote'] == 2) {
+            $redDislikes = "Dislike_red.png";
+
+            return $redDislikes;
+        }else {
+            $redDislikes = "Dislike.png";
+
+            return $redDislikes;
+        }
     }
 }

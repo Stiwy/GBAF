@@ -114,6 +114,15 @@ if (isset($_GET['action'])){
             header('location: index.php');
         }
 
+    }elseif ($_GET['action'] == 'addvote') {
+        if (isset($_GET['vote'], $_GET['id_acteur']) AND !empty($_GET['vote']) AND !empty($_GET['id_acteur'])) {
+            $vote = (int) $_GET['vote'];
+            $id_acteur = (int) $_GET['id_acteur'];
+
+            vote($vote, $id_acteur, $_SESSION['auth']['id_user']);
+        }else {
+            header('location: index.php');
+        }
     }elseif ($_GET['action'] == 'addcomment') {
         if (isset($_GET['id_acteur']) && $_GET['id_acteur'] > 0) {
             if (!empty($_POST['post'])) {

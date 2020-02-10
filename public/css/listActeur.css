@@ -30,6 +30,19 @@
  max-height: 400px;
 }
 
+#title_comment > h2 {
+    text-decoration: none;
+}
+
+#vote > p > a {
+    color: black;
+    font-style: italic;
+}
+
+#vote > p > a > img {
+    width: 45px;
+}
+
 #form_comment {
     display: flex;
     border-bottom: 2px solid lightslategrey;
@@ -90,5 +103,5 @@
 }
 
 #comment_date {
-    margin-left: 75%;
+    margin-left: 70%;
 }

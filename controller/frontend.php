@@ -3,6 +3,7 @@
 require_once('model/MemberManager.php');
 require_once('model/ActeurManager.php');
 require_once('model/CommentManager.php');
+require_once('model/VoteManager.php');
 
 function registration($name, $firstname, $username, $password, $password_confirm, $question, $reply)
 {
@@ -68,9 +69,14 @@ function acteur()
 {
     $acteurManager = new ActeurManager();
     $commentManager = new CommentManager();
+    $voteManager = new VoteManager();
 
     $acteur = $acteurManager->getActeur($_GET['id_acteur']);
     $comments = $commentManager->getComment($_GET['id_acteur']);
+    $getLikes = $voteManager->getLikes($_GET['id_acteur']);
+    $getDisLikes = $voteManager->getDisLikes($_GET['id_acteur']);
+    $greenLikes = $voteManager->greenLikes($_GET['id_acteur']);
+    $redDislikes = $voteManager->redDislikes($_GET['id_acteur']);
 
     require('view/frontend/acteurView.php');
 }
@@ -80,5 +86,12 @@ function comment($id_user, $id_acteur, $post)
     $commentManager = new CommentManager();
 
     $comment = $commentManager->addComment($id_user, $id_acteur, $post);
+}
+
+function vote($vote, $id_acteur, $id_user) 
+{
+    $voteManager = new VoteManager();
+
+    $addVote = $voteManager->addVote($vote, $id_acteur, $id_user); 
 }
 
