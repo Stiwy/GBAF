@@ -1,4 +1,93 @@
-#acteur {
+.section_listActeurs {
+    margin-left: 100px;
+    margin-right: 100px;
+    border-bottom: 1px solid lightslategray;
+    margin-top: 0px;
+}
+
+.section_listActeurs_1 > div > h1, .section_listActeurs_2 > h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section_listActeurs_1 > div > p, .section_listActeurs_2 > p {
+    text-align: center;
+    color: grey;
+    margin: 0 60px 20px 60px;
+    padding: 0 20px 20px 20px;
+    border-right: solid 1px lightslategray;
+    border-left: solid 1px lightslategray;
+    font-weight: 600;
+}
+
+#banner {
+    padding-bottom: 20px;
+    border-bottom: lightslategrey solid 2px;
+}
+
+#GBAF_title_banner{
+    top: 350px;
+    left: 47%;
+    position: absolute;
+    z-index: 2;
+    font-size: 75px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: rgba(255, 0, 0, 0.637) 3px 3px 6px;
+    text-decoration: none;
+}
+
+#GBAF_banner {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    z-index: 1;
+    border-radius: 5px;
+    border: ridge 2px whitesmoke;
+}
+
+
+/*section_listActeurs_2*/
+
+.section_listActeurs_2 {
+    border-bottom: lightslategray 2px solid;
+}
+
+#while_actor_block{
+    margin: 0 60px 0 60px;
+    border: solid 2px lightslategray;
+    box-shadow: lightslategrey 3px 3px 3px;
+    margin-bottom: 25px;
+    height: 220px;
+    background: white;
+}
+
+#while_actor_picture {
+    width: 350px;
+    text-align: center;
+}
+
+#btn_actorlist {
+    border: 1px solid lightslategray;
+    background-color: lightslategray;
+    box-shadow: lightslategray 2px 2px 2px;
+    color: white;
+    padding: 3px 3px 3px 3px;
+}
+
+#btn_actorlist:hover {
+    text-decoration: none;
+    background-color: white;
+    color: lightslategray;
+    box-shadow: lightslategray 3px 3px 3px;
+    font-weight: 700;
+}
+
+
+
+
+
+
+/*#acteur {
     border: 1px solid lightslategray;
     box-shadow: lightslategray 3px 3px 3px;
     margin-bottom: 35px;
@@ -104,4 +193,4 @@
 
 #comment_date {
     margin-left: 70%;
-}
+} */

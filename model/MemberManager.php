@@ -99,19 +99,14 @@ class MemberManager extends Manager
         $db = $this->dbConnect();
         session_start();
 
-        setlocale(LC_TIME, 'fr');
         $req = $db->prepare('SELECT * FROM account WHERE username = ?');
         $req->execute(array($username));
         $user = $req->fetch();
 
-        $var = utf8_encode(ucfirst(strftime('%A %d ' ,strtotime($user['registration_date']))));
-        $var .= utf8_encode(ucfirst(strftime('%B %Y' ,strtotime($user['registration_date']))));
-        $_SESSION['date_fr'] = $var;
-
         if (password_verify($password, $user['password'])) {
             $_SESSION['auth'] = $user;
             $_SESSION['flash']['success'] = "Vous êtes maintenant connecté";
-            header('Location: index.php?action=account');
+            header('Location: index.php');
         }else {
             $_SESSION['flash']['danger'] = "Identifiant ou mot de passe incorrecte";
             header('Location: index.php');

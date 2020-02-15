@@ -2,6 +2,11 @@
 
 <?php ob_start(); ?>
     <?php require('model/include/flash.php'); ?>
+    <?php 
+        setlocale(LC_TIME, 'fr');
+        $registration_date = utf8_encode(ucfirst(strftime('%A %d ' ,strtotime($_SESSION['auth']['registration_date']))));
+        $registration_date .= utf8_encode(ucfirst(strftime('%B %Y' ,strtotime($_SESSION['auth']['registration_date']))));
+    ?>
 
     <h1 id="title_form">Votre compte</h1>
     <p id="sub_title">Bonjour <?= $_SESSION['auth']['firstname']?></p>
@@ -28,7 +33,7 @@
         <div id="account_information">
             <h2>Information du compte :</h2>
             <p><span class="span_account">Question secrète : </span><?= $_SESSION['auth']['question'] ?></p>
-            <p><span class="span_account">Date d'inscription : </span>Le, <?= $_SESSION['date_fr']?></p>
+            <p><span class="span_account">Date d'inscription : </span>Le, <?= $registration_date?></p>
         </div>
     </section>
 

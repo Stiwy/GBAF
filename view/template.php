@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="public/css/account.css">
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/listActeur.css">
+    <link rel="stylesheet" href="public/css/actorView.css">
 
     <!-- =====Bootstrap===== -->
     <?php require('public/js/bootstrap.php'); ?>
@@ -21,6 +22,15 @@
     <!-- =====Header===== -->
 
     <?= $content ?>
+
+    <!-- =====Footer===== -->
+    <section id="footer">
+        <div>
+            <a class="footer_1" href="#">Mention légal</a>
+            <a class="footer_2" href="#">Contact</a>
+        </div>  
+</section>
+    <!-- =====Footer===== -->
     
 </body>
 </html>

@@ -16,7 +16,7 @@
         <input type="password" name="password" id="password" placeholder="Saisissez votre mot de passe" class="col-12 input">
 
         <div class="col-12">
-            <button id="btn_primary">Se connecter</button>
+            <button id="btn_primary" class="login_btn">Se connecter</button>
         </div>
     </form>
 <?php $content = ob_get_clean(); ?>

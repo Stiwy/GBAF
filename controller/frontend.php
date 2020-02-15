@@ -77,6 +77,7 @@ function acteur()
     $getDisLikes = $voteManager->getDisLikes($_GET['id_acteur']);
     $greenLikes = $voteManager->greenLikes($_GET['id_acteur']);
     $redDislikes = $voteManager->redDislikes($_GET['id_acteur']);
+    $countComment = $commentManager->countComment($_GET['id_acteur']);
 
     require('view/frontend/acteurView.php');
 }
@@ -85,7 +86,7 @@ function comment($id_user, $id_acteur, $post)
 {
     $commentManager = new CommentManager();
 
-    $comment = $commentManager->addComment($id_user, $id_acteur, $post);
+    $req = $commentManager->addComment($id_user, $id_acteur, $post);
 }
 
 function vote($vote, $id_acteur, $id_user) 
