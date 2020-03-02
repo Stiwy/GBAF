@@ -3,29 +3,68 @@
 <?php ob_start(); ?>
     <?php require('model/include/flash.php'); ?>
 
-    <h1 class="primary_h1">Mot de passe oublié</h1>
-    <h3 class="primary_h3">Suivez les étapes pour reinitialisé votre mot de passe</h3>
-    <p id="p_form" class="col-12"><a href="index.php?action=forgot">Retour</a></p>
-    
-    <form method="post" action="index.php?action=resetpassword"  class="row">
-        <label for="username" class="col-12">Nom d'utilisateur</label>
-        <input type="text" name="username" id="username" value=" <?php if(isset($_SESSION['username'])) { echo $_SESSION['username'];}else { echo $_SESSION['auth']['username']; } ?>" class="col-12" disabled>
+    <div class="primary_background my-5">
+        <h1 class="primary_h1 text-white">Mot de passe oublié ?</h1>
+        <h3 class="primary_h3 text-white">Suivez les étapes pour reinitialisé votre mot de passe</h3>
 
-        <label for="password"><abbr title="Un mot de passe valide aura : 
-                - de 8 à 15 caractères
-                - au moins une lettre minuscule
-                - au moins une lettre majuscule
-                - au moins un chiffre
-                - au moins un de ces caractères spéciaux: $ @ % * + - _ !">Votre mot de passe</abbr></label>
-        <input type="password" name="password" id="password" placeholder="Saisissez votre mot de passe" class="input col-12">
-
-        <label for="password_confirm">Confirmer votre mot de passe</label>
-        <input type="password" name="password_confirm" id="password_confirm" placeholder="Saisissez à nouveau votre mot de passe" class="input col-12">
-
-        <div class="col-12">
-            <button class="primary_btn">Suivant</button>
+        <div class="ml-5 mt-3 mb-3">
+            <a class="btn btn-danger btn-sm" href="index.php?action=forgot" role="button">Retour</a>
         </div>
-    </form>
+
+        <form method="post" action="index.php?action=resetpassword" class="was-validated">
+        
+            <div class="primary_input">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend"><svg class="bi bi-person-fill" width="1.4em" height="1.4em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 16s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H5zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg></span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" aria-describedby="inputGroupPrepend" name="username" id="username" value="<?=$_SESSION['username']?>" disabled>
+                </div>
+            </div>
+
+            <div class="primary_input">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend"> <abbr title="Un mot de passe valide aura : 
+                    - de 8 à 15 caractères
+                    - au moins une lettre minuscule
+                    - au moins une lettre majuscule
+                    - au moins un chiffre
+                    - au moins un de ces caractères spéciaux: $ @ % * + - _ !"><svg class="bi bi-lock-fill" width="1.4em" height="1.4em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect width="11" height="9" x="4.5" y="8" rx="2"></rect><path fill-rule="evenodd" d="M6.5 5a3.5 3.5 0 117 0v3h-1V5a2.5 2.5 0 00-5 0v3h-1V5z" clip-rule="evenodd"></path></svg></abbr></span>
+                    </div>
+                    <input type="password" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="password" id="password" placeholder="Nouveau mot de passe" required>
+                    <div class="invalid-feedback">
+                        Veuillez saisir votre nouveau mot de passe.
+                    </div>
+                </div>
+            </div>
+
+            <div class="primary_input">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend"><svg class="bi bi-lock-fill" width="1.4em" height="1.4em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect width="11" height="9" x="4.5" y="8" rx="2"></rect><path fill-rule="evenodd" d="M6.5 5a3.5 3.5 0 117 0v3h-1V5a2.5 2.5 0 00-5 0v3h-1V5z" clip-rule="evenodd"></path></svg></span>
+                    </div>
+                    <input type="password" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="password_confirm" id="password_confirm" placeholder="Confirmer le mot de passe" required>
+                    <div class="invalid-feedback">
+                        Veuillez saisir à nouveau votre nouveau mot de passe.
+                    </div>
+                </div>
+            </div>
+            
+            <div id="button_login">
+                <input class="btn btn-success" type="submit" value="Enregistrer">
+            </div>
+        </form>
+    </div>
+
+    <!-- =====Footer===== -->
+    <section id="footer" class="fixed-bottom">
+        <div>
+            <a class="footer_1" href="#">Mention légal</a>
+            <a class="footer_2" href="#">Contact</a>
+        </div>  
+    </section>
+    <!-- =====Footer===== -->
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/template.php'); ?>

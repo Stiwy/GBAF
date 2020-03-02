@@ -3,9 +3,11 @@
 <?php ob_start(); ?>
     <?php require('model/include/flash.php'); ?>
     
-    <section id="actor_section" class="container">
+    <section id="acteur_section" class="container">
         <div>
-            <p class="actor_logo"><img src="public/image/acteur/<?=$acteur['logo']?>" alt=""></p>
+            <p class="acteur_logo"><img src="public/image/acteur/<?=$acteur['logo']?>" alt=""></p>
+
+            <div class="row justify-content-end"><a id="btn_acteurlist" href="index.php">Retour</a></div>
 
             <h2 class="primary_h2"><?=$acteur['acteur']?></h2>
 
@@ -65,6 +67,15 @@
         <?php endwhile ; ?>
         
     </section>
+
+    <!-- =====Footer===== -->
+    <section id="footer" class="static-bottom">
+        <div>
+            <a class="footer_1" href="#">Mention légal</a>
+            <a class="footer_2" href="#">Contact</a>
+        </div>  
+    </section>
+    <!-- =====Footer===== -->
     
 <?php $content = ob_get_clean(); ?>
 

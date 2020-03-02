@@ -1,9 +1,11 @@
 <?php
-
 require_once('model/MemberManager.php');
 require_once('model/ActeurManager.php');
 require_once('model/CommentManager.php');
 require_once('model/VoteManager.php');
+
+
+// ----- Member connection ----- 
 
 function registration($name, $firstname, $username, $password, $password_confirm, $question, $reply)
 {
@@ -24,7 +26,7 @@ function logout(){
     $logout = $memberManager->logoutMember();
 }
 
-// ----- Reset Password -----
+// ----- Forgot password -----
 
 function forgot($username)
 {
@@ -47,7 +49,7 @@ function resetPassword($username, $password, $password_confirm)
     $checkQuestion = $memberManager->resetPasswordMember($username, $password, $password_confirm);
 }
 
-// ----- Reset Password -----
+// ----- Edit profil -----
 
 function editProfil($postname, $postfirstname, $postusername, $postquestion, $postreply, $avatar, $nameavatar, $tmp_nameavatar, $sizeavatar)
 {
@@ -56,13 +58,21 @@ function editProfil($postname, $postfirstname, $postusername, $postquestion, $po
     $updtadeLines = $memberManager->editProfilMember($postname, $postfirstname, $postusername, $postquestion, $postreply, $avatar, $nameavatar, $tmp_nameavatar, $sizeavatar);
 }
 
-function listActeurs()
+function editPassword($postusername, $password_old, $password, $password_confirm) {
+    $memberManager = new MemberManager();
+
+    $affectLines = $memberManager->editPasswordMember($postusername, $password_old, $password, $password_confirm);
+}
+
+// ----- Acteurs pages -----
+
+function listacteurs()
 {
     $acteurManager = new ActeurManager();
 
     $acteurs = $acteurManager->getActeurs();
 
-    require ('view/frontend/listActeursView.php');
+    require ('view/frontend/listacteursView.php');
 }
 
 function acteur()

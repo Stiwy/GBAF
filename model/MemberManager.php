@@ -3,6 +3,7 @@ require_once("model/Manager.php");
 
 class MemberManager extends Manager
 {
+    // ----- Member connection ----- 
 
     public function addMember($postname, $postfirstname, $postusername, $postpassword, $postpassword_confirm, $postquestion, $postreply)
     {
@@ -123,6 +124,8 @@ class MemberManager extends Manager
         header('location: index.php');
     }
 
+    // ----- Forgot password -----
+
     public function forgotMember($username)
     {
         $db = $this->dbConnect();
@@ -142,8 +145,6 @@ class MemberManager extends Manager
             header('location: index.php');
         }
     }
-
-    // ----- Reset Password -----
 
     public function forgotQuestionMember($username, $reply) 
     {
@@ -204,8 +205,8 @@ class MemberManager extends Manager
         }
     }
 
-    // ----- Reset Password -----
-
+    // ----- Edit profil -----
+    
     public function editProfilMember($postname, $postfirstname, $postusername, $postquestion, $postreply, $avatar, $nameavatar, $tmp_nameavatar, $sizeavatar)
     {
         if (!empty($postname) && preg_match('/^[a-zA-Z]{3,15}+$/', $postname)) {
@@ -312,6 +313,50 @@ class MemberManager extends Manager
         }else {
             $_SESSION['flash']['danger'] = "Votre nom n'est pas valide !";
             header('Location: index.php?action=editprofil');
+        }
+    }
+
+    public function editPasswordMember($postusername, $postpassword_old, $postpassword, $postpassword_confirm) {
+
+        $db = $this->dbConnect();
+
+        $username = htmlspecialchars($postusername);
+
+        $req = $db->prepare('SELECT * FROM account WHERE username = ?');
+        $req->execute(array($username));
+        $user = $req->fetch();
+
+        if (!empty($postpassword_old) && password_verify($postpassword_old, $user['password'])) {
+
+            if (!empty($postpassword) && $postpassword == $postpassword_confirm) {
+
+                if (preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$/', $postpassword)) { 
+
+                    $password = password_hash($postpassword, PASSWORD_BCRYPT);
+
+                    $db->prepare('UPDATE account SET password = ? WHERE username = ?')->execute(array($username, $password));
+
+                    $_SESSION['flash']['success'] = "Mot de passe changé avec success !";
+                    header('Location: index.php');
+
+                    return $affectLines;
+
+                }else {
+                    $_SESSION['flash']['danger'] = "Un mot de passe valide aura : </br>
+                    - De 8 à 15 caractères</br>
+                    - Au moins une lettre minuscule</br>
+                    - Au moins une lettre majuscule</br>
+                    - Au moins un chiffre</br>
+                    - Au moins un de ces caractères spéciaux: $ @ % * + - _ !";
+                    header('Location: index.php?action=editpassword');
+                }
+            }else {
+                $_SESSION['flash']['danger'] = "Vos mots de passe ne corrésponde pas !";
+                header('Location: index.php?action=editpassword');
+            }
+        }else {
+            $_SESSION['flash']['danger'] = "Mot de passe incorrect !";
+            header('Location: index.php?action=editpassword');
         }
     }
 }

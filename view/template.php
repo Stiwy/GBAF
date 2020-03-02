@@ -10,12 +10,9 @@
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/header.css">
     <link rel="stylesheet" href="public/css/footer.css">
-
-    <link rel="stylesheet" href="public/css/form.css">
-    
     <link rel="stylesheet" href="public/css/account.css">
     <link rel="stylesheet" href="public/css/listActeur.css">
-    <link rel="stylesheet" href="public/css/actorView.css">
+    <link rel="stylesheet" href="public/css/acteurView.css">
 
     <!-- =====Bootstrap===== -->
     <?php require('public/js/bootstrap.php'); ?>
@@ -24,18 +21,8 @@
 <body>
     <!-- =====Header===== -->
     <?php include ('model/include/header.php'); ?>
-    <!-- =====Header===== -->
 
     <?= $content ?>
-
-    <!-- =====Footer===== -->
-    <section id="footer">
-        <div>
-            <a class="footer_1" href="#">Mention légal</a>
-            <a class="footer_2" href="#">Contact</a>
-        </div>  
-    </section>
-    <!-- =====Footer===== -->
     
 </body>
 </html>

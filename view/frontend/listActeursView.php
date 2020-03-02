@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
     <?php require('model/include/flash.php'); ?>
 
-    <section class="section_ActorsList">
+    <section class="section_acteursList">
         
         <!-- GBAF intro -->
         <section id="gbaf">
@@ -28,26 +28,26 @@
             </div>
         </section>
 
-        <section id="actorsList">
+        <section id="acteursList">
             <h2>Retrouvez nos acteurs et nos partenaires !</h2>
 
             <p>Informer vous sur nos acteurs et sur nos partenaires présent ci-dessous, vous y trouverai des informations portant sur des produits bancaires et  des financeurs</p>
 
             <?php while ($data = $acteurs->fetch()) : ?>
 
-                <div id="while_actor_block" class="row align-items-center">
+                <div id="while_acteur_block" class="row align-items-center">
                     <div class="col-12 col-md-4">
-                        <img id="while_actor_picture" src="public/image/acteur/<?=$data['logo']?>" alt="Image de l'acteur">
+                        <img id="while_acteur_picture" src="public/image/acteur/<?=$data['logo']?>" alt="Image de l'acteur">
                     </div>
                     <div class="col-12 col-md-8">
                         <div class="row">
                             <div class="col-12">
-                                <h3 id="while_actor_h3"><?=$data['acteur']?></h3>
+                                <h3 id="while_acteur_h3"><?=$data['acteur']?></h3>
 
-                                <p id="while_actor_p"><?= substr($data['description'], 0, 105)?>...<a href="index.php?action=acteur&amp;id_acteur=<?= $data['id_acteur'] ?>">[plus]</a></p>
+                                <p id="while_acteur_p"><?= substr($data['description'], 0, 205)?>...<a href="index.php?action=acteur&amp;id_acteur=<?= $data['id_acteur'] ?>">[plus]</a></p>
                             </div>
                             <div class="offset-lg-8 col-lg-4 offset-6 col-6">
-                                <p><a id="btn_actorlist" href="index.php?action=acteur&amp;id_acteur=<?= $data['id_acteur'] ?>">Lire la suite</a></p>
+                                <p><a id="btn_acteurlist" href="index.php?action=acteur&amp;id_acteur=<?= $data['id_acteur'] ?>">Lire la suite</a></p>
                             </div>
                         </div>
                         
@@ -57,7 +57,14 @@
         </section>
     </section>
 
-    
+    <!-- =====Footer===== -->
+    <section id="footer" class="static-bottom">
+        <div>
+            <a class="footer_1" href="#">Mention légal</a>
+            <a class="footer_2" href="#">Contact</a>
+        </div>  
+    </section>
+    <!-- =====Footer===== -->
     
 <?php $content = ob_get_clean(); ?>
 

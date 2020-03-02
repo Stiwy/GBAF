@@ -1,11 +1,11 @@
-.section_ActorsList {
+.section_acteursList {
     margin-left: 200px;
     margin-right: 200px;
     border-bottom: 1px solid lightslategray;
     margin-top: 0px;
 }
 
-#gbaf > div > p, #actorsList > p {
+#gbaf > div > p, #acteursList > p {
     text-align: center;
     color: grey;
     margin: 50px 60px 20px 60px;
@@ -42,17 +42,17 @@
 }
 
 
-/*#actorsList*/
+/*#acteursList*/
 
-#actorsList {
+#acteursList {
     border-bottom: lightslategray 2px solid;
 }
 
-#actorsList > h2 {
+#acteursList > h2 {
     text-align: center;
 }
 
-#while_actor_block{
+#while_acteur_block{
     margin: 0 60px 0 60px;
     border: solid 2px lightslategray;
     box-shadow: lightslategrey 3px 3px 3px;
@@ -61,12 +61,12 @@
     background: white;
 }
 
-#while_actor_picture {
+#while_acteur_picture {
     width: 300px;
     text-align: center;
 }
 
-#btn_actorlist {
+#btn_acteurlist {
     border: 1px solid lightslategray;
     background-color: lightslategray;
     box-shadow: lightslategray 2px 2px 2px;
@@ -74,7 +74,7 @@
     padding: 3px 3px 3px 3px;
 }
 
-#btn_actorlist:hover {
+#btn_acteurlist:hover {
     text-decoration: none;
     background-color: white;
     color: lightslategray;
@@ -86,12 +86,12 @@
 
 @media screen and (max-width: 1400px) {
     
-    .section_ActorsList {
+    .section_acteursList {
         margin-left: 100px;
         margin-right: 100px;
     }
 
-    #gbaf > div > p, #actorsList > p {
+    #gbaf > div > p, #acteursList > p {
         font-size: 0.9em;
     }
 
@@ -99,7 +99,7 @@
         height: 300px;
     }
     
-    #while_actor_picture {
+    #while_acteur_picture {
         width: 230px;
         text-align: center;
     }
@@ -109,19 +109,19 @@
 
 @media screen and (max-width: 990px) {
     
-    #while_actor_block {     
+    #while_acteur_block {     
         height: 180px;     
     }
 
-    #while_actor_picture{
+    #while_acteur_picture{
         width: 180px;
     }
 
-    #while_actor_h3 {
+    #while_acteur_h3 {
         font-size: 1.3em;
     }
 
-    #while_actor_p {
+    #while_acteur_p {
         font-size: 0.9em;
     }
   }
@@ -130,11 +130,11 @@
 
   @media screen and (max-width: 860px) {
 
-    #actorsList > h2 {
+    #acteursList > h2 {
         font-size: 1.3em;
     }
 
-    #gbaf > div > p, #actorsList > p {
+    #gbaf > div > p, #acteursList > p {
         font-size: 0.7em;
     }
 
@@ -142,44 +142,44 @@
         height: 200px;
     }
 
-    #while_actor_block {
+    #while_acteur_block {
         width: 100%;
-        height: 150px;
+        height: 170px;
         margin-right: auto;
         margin-left: auto;
     }
 
-    #while_actor_picture{
-        width: 130px;
+    #while_acteur_picture{
+        width: 150px;
     }
 
-    #while_actor_h3 {
+    #while_acteur_h3 {
         font-size: 1.2em;
     }
 
-    #while_actor_p {
+    #while_acteur_p {
         font-size: 0.7em;
     }
 
-    #btn_actorlist {
+    #btn_acteurlist {
         font-size: 0.7em;
     }
   }
 
   /*Descktop screen and (max-width: 500px) */
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 766px) {
 
-    .section_ActorsList {
+    .section_acteursList {
         margin-left: 10px;
         margin-right: 10px;
     }
 
-    #actorsList > h2 {
+    #acteursList > h2 {
         font-size: 1.1em;
     }
     
-    #gbaf > div > p, #actorsList > p {
+    #gbaf > div > p, #acteursList > p {
         margin: 0 10px 10px 10px;
         padding: 0 15px 15px 15px;
     }
@@ -188,22 +188,22 @@
         height: 120px;
     }
 
-    #while_actor_block {
-        height: 200px;
+    #while_acteur_block {
+        height: 220px;
     }
 
-    #while_actor_picture{
+    #while_acteur_picture{
         width: 140px;
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
 
-    #while_actor_h3 {
+    #while_acteur_h3 {
         font-size: 1em;
     }
 
-    #while_actor_p {
+    #while_acteur_p {
         font-size: 0.6em;
     }
   }

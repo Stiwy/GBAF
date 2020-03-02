@@ -1,0 +1,203 @@
+/* Acteur */
+
+#acteur_section {
+    border-bottom: 1px solid lightslategray;;
+}
+
+.acteur_logo {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.acteur_logo > img {
+    border-radius: 5px;
+    box-shadow: whitesmoke 3px 3px 6px;
+}
+
+/* Commentaire */
+
+#vote {
+    border: 1px solid lightslategray;
+    box-shadow: lightslategray 3px 3px 6px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+}
+
+#vote > p {
+    padding: 0px 0px 0px 10px;
+    margin: 0px 0px 0px 0px;
+}
+
+#vote > p > a{
+    padding: 0px;
+    margin: 0px;
+    vertical-align: bottom;
+}
+
+#vote > p > a > img{
+    width: 45px;
+}
+
+#form_comment {
+    display: -webkit-box;
+    display: flex;
+}
+
+.input{
+    font-size: 1.2em;
+    color:gray;
+    width: 100%;
+    border: none;
+    border-bottom: solid 4px grey;
+    margin-bottom: 20px;
+}
+
+.input:focus {
+    color: black;
+    border-color: red;
+    outline:  none;
+}
+
+#btn_form_comment {
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid lightslategray;
+    box-shadow: lightslategray 3px 3px 6px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+}
+
+#btn_form_comment:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+    -webkit-transition-delay: 0.2;
+            transition-delay: 0.2;
+    box-shadow: lightslategray 2px 2px 6px;
+
+}
+
+#comment_list {
+    margin-top: 20px;
+    border: lightslategray solid 1px;
+    box-shadow: lightslategray 3px 3px 6px;
+}
+
+#comment_col_left { 
+    text-align: center;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+#post_comment {
+    margin-top: 10px;
+}
+
+/*Descktop screen and (max-width: 1400px) */
+
+@media screen and (max-width: 1400px) {
+
+  }
+
+  /*Descktop screen and (max-width: 990px) */
+
+@media screen and (max-width: 990px) {
+    .acteur_logo > img {
+        width: 700px;
+    }
+  }
+
+  /*Descktop screen and (max-width: 860px) */
+
+  @media screen and (max-width: 860px) {
+    .acteur_logo > img {
+        width: 500px;
+    }
+    
+
+    #acteur_title {
+        font-size: 1.3em;
+    }
+
+    #acteur_section > div {
+        font-size: 0.7em;
+    }
+
+    #title_comment > h2 {
+        font-size: 1.3em;
+    }
+
+    .checkbox {
+        font-size: 0.9em;
+    }
+
+    .input {
+        font-size: 1em;
+    }
+  }
+
+  /*Descktop screen and (max-width: 500px) */
+
+  @media screen and (max-width: 600px) {
+    .acteur_logo > img {
+        width: 270px;
+    }
+
+    #title_comment > h2 {
+        font-size: 1.1em;
+    }
+
+    #vote {
+        margin-right: 10px;
+        height: 35px;
+    }
+    
+    #vote > p {
+        font-size: 0.8em;
+    }
+    
+    #vote > p > a > img{
+        width: 35px;
+    }
+
+    #btn_add_comment {
+        font-size: 0.8em;
+        margin-right: 5px;
+    }
+
+    .checkbox {
+        font-size: 0.7em;
+    }
+
+    .input {
+        font-size: 0.8em;
+    }
+
+    #comment_list {
+        font-size: 0.9em;
+    }
+
+    #comment_col_left {
+        display: -webkit-box;
+        display: flex;
+    }
+
+    #comment_col_left > p > img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #comment_list_firstname {
+        margin: 25px 0 0 10px;
+    }
+
+    #comment_col_right {
+        margin-top: 50px;
+    }
+  }

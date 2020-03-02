@@ -12,7 +12,10 @@
     <h3 class="primary_h3">Bonjour <?= $_SESSION['auth']['firstname']?></h3>
 
     <section class="container">
-        <div id="div_btn"><a class="primary_btn" href="index.php?action=editprofil">Modifier</a ></div>
+
+        <div class="ml-5 mt-3 mb-3">
+            <a class="btn btn-danger btn-md" href="index.php?action=editprofil" role="button">Modifier</a>
+        </div>
 
         <div id="show_profile" class="row align-items-center">
             <div id="show_profile_avatar">
@@ -36,6 +39,15 @@
             <p class="primary_p"><span class="span_account">Date d'inscription : </span>Le, <?= $registration_date?></p>
         </div>
     </section>
+
+    <!-- =====Footer===== -->
+    <section id="footer" class="fixed-bottom">
+        <div>
+            <a class="footer_1" href="#">Mention légal</a>
+            <a class="footer_2" href="#">Contact</a>
+        </div>  
+    </section>
+    <!-- =====Footer===== -->
 
 <?php $content = ob_get_clean(); ?>
 
