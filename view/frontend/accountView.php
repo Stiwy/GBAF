@@ -8,11 +8,11 @@
         $registration_date .= utf8_encode(ucfirst(strftime('%B %Y' ,strtotime($_SESSION['auth']['registration_date']))));
     ?>
 
-    <h1 id="title_form">Votre compte</h1>
-    <p id="sub_title">Bonjour <?= $_SESSION['auth']['firstname']?></p>
+    <h1 class="primary_h1">Votre compte</h1>
+    <h3 class="primary_h3">Bonjour <?= $_SESSION['auth']['firstname']?></h3>
 
     <section class="container">
-        <div id="div_btn"><a id="btn_primary" href="index.php?action=editprofil">Modifier</a ></div>
+        <div id="div_btn"><a class="primary_btn" href="index.php?action=editprofil">Modifier</a ></div>
 
         <div id="show_profile" class="row align-items-center">
             <div id="show_profile_avatar">
@@ -25,15 +25,15 @@
         </div>
 
         <div id="about">
-            <h2>A propos de moi :</h2>
-            <p><span class="span_account">Prénom :</span> <?= $_SESSION['auth']['firstname'] ?></p>
-            <p><span class="span_account">Nom de famille :</span> <?= $_SESSION['auth']['name'] ?></p>
+            <h2 class="primary_h2">A propos de moi :</h2>
+            <p class="primary_p"><span class="span_account">Prénom :</span> <?= $_SESSION['auth']['firstname'] ?></p>
+            <p class="primary_p"><span class="span_account">Nom de famille :</span> <?= $_SESSION['auth']['name'] ?></p>
         </div>
 
         <div id="account_information">
-            <h2>Information du compte :</h2>
-            <p><span class="span_account">Question secrète : </span><?= $_SESSION['auth']['question'] ?></p>
-            <p><span class="span_account">Date d'inscription : </span>Le, <?= $registration_date?></p>
+            <h2 class="primary_h2">Information du compte :</h2>
+            <p class="primary_p"><span class="span_account">Question secrète : </span><?= $_SESSION['auth']['question'] ?></p>
+            <p class="primary_p"><span class="span_account">Date d'inscription : </span>Le, <?= $registration_date?></p>
         </div>
     </section>
 

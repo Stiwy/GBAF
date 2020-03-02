@@ -3,8 +3,8 @@
 <?php ob_start(); ?>
     <?php require('model/include/flash.php'); ?>
 
-    <h1 id="title_form">Mot de passe oublié</h1>
-    <p id="sub_title">Suivez les étapes pour reinitialisé votre mot de passe</p>
+    <h1 class="primary_h1">Mot de passe oublié</h1>
+    <h3 class="primary_h3">Suivez les étapes pour reinitialisé votre mot de passe</h3>
     <p id="p_form" class="col-12"><a href="index.php?action=forgot">Retour</a></p>
     
     <form method="post" action="index.php?action=resetpassword"  class="row">
@@ -23,7 +23,7 @@
         <input type="password" name="password_confirm" id="password_confirm" placeholder="Saisissez à nouveau votre mot de passe" class="input col-12">
 
         <div class="col-12">
-            <button id="btn_primary">Suivant</button>
+            <button class="primary_btn">Suivant</button>
         </div>
     </form>
 <?php $content = ob_get_clean(); ?>

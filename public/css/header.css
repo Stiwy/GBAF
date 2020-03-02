@@ -1,6 +1,5 @@
 header {
     background-color: lightgray;
-    display: flex;
     padding: 0 150px 0 60px;
     margin: 0;
     border-bottom: 1px red solid;
@@ -60,3 +59,39 @@ header {
     border-top: 2px solid red;
     text-decoration: none;
 }
+
+  /*Descktop screen and (max-width: 500px) */
+
+  @media screen and (max-width: 769px) {
+    header {
+        padding: 0 50px 0 10px;
+        display: inline;
+    }
+
+    #logo_header {
+        width: 65px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #auth_avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+    }
+
+    #li_auth {
+        text-align: center;
+    }
+
+    #sub_menu {
+        width: 90%;
+    }
+
+    /*-----Is not connect-----*/
+
+#menu li {
+    text-align: center;
+}
+  }

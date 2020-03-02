@@ -1,0 +1,46 @@
+#footer {
+    height: 100px;
+    background-color: gray;
+    text-align: center;
+    width: 100%;
+}
+
+#footer > div {
+    padding-top: 40px;
+}
+
+.footer_1 {
+    color: white;
+    border-right: 2px solid white;
+    border-left: solid 2px white;
+    padding: 0 8px 0 8px;
+    margin-right: 0px;
+}
+
+.footer_2 {
+    color: white;
+    border-right: 2px solid white;
+    padding: 0 8px 0 5px;
+    margin-left: 0px;
+}
+
+#footer > div > a:hover {
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+}
+
+  /*Descktop screen and (max-width: 500px) */
+
+  @media screen and (max-width: 700px) {
+
+    .footer_1 {
+        font-size: 0.8em;
+        border-right: 1px solid white;
+    }
+    
+    .footer_2 {
+        font-size: 0.8em;
+        border-right: 1px solid white;
+    }
+  }

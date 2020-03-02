@@ -7,7 +7,29 @@ body {
     text-align: center;
 }
 
-#btn_primary{
+/* Police */
+
+.primary_h1 {
+    text-align: center;
+    margin: 30px 0 0 0;
+}
+
+.primary_h2 {
+    font-size: 1.7em;
+    margin-bottom: 20px;
+    text-decoration: underline lightslategray;
+}
+
+.primary_h3 {
+    text-align: center;
+    margin: 0 0 0 0;
+    font-weight: normal;
+
+}
+
+/* Button */
+
+.primary_btn{
     background-color: red;
     color: lightgray;
     border: 1px solid red;
@@ -20,7 +42,7 @@ body {
     margin-bottom: 410px;
 }
 
-#btn_primary:hover {
+.primary_btn:hover {
     background-color: white;
     color: red;
     border: 2px solid red;
@@ -28,34 +50,84 @@ body {
     box-shadow: lightslategray 2px 2px 6px;
 }
 
-#footer {
-    height: 100px;
-    background-color: gray;
-    text-align: center;
-    width: 100%;
+.secondary_btn {
+    margin-top: 20px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid lightslategray;
+    box-shadow: lightslategray 3px 3px 6px;
+    border-radius: 15px;
+    background-color: whitesmoke;
 }
 
-#footer > div {
-    padding-top: 40px;
-}
-
-.footer_1 {
-    color: white;
-    border-right: 2px solid white;
-    border-left: solid 2px white;
-    padding: 0 8px 0 8px;
-    margin-right: 0px;
-}
-
-.footer_2 {
-    color: white;
-    border-right: 2px solid white;
-    padding: 0 8px 0 5px;
-    margin-left: 0px;
-}
-
-#footer > div > a:hover {
-    text-decoration: none;
+.secondary_btn:hover {
+    background-color: white;
     color: red;
-    font-weight: bold;
+    border: 1px solid red;
+    -webkit-transition-delay: 0.2;
+            transition-delay: 0.2;
 }
+
+/*Descktop screen and (max-width: 1400px) */
+
+@media screen and (max-width: 1400px) {
+   /* Police */
+
+    /* Button */ 
+}
+
+/*Descktop screen and (max-width: 990px) */
+
+@media screen and (max-width: 990px) { 
+    /* Police */
+
+    /* Button */ 
+}
+
+/*Descktop screen and (max-width: 860px) */
+
+@media screen and (max-width: 860px) {
+    /* Police */
+
+    .primary_h1 {
+        font-size: 1.8em;
+    }
+
+    .primary_h2 {
+        font-size: 1.6em;
+    }
+
+    .primary_h3 {
+        font-size: 1.5em;
+    }
+
+    /* Button */ 
+}
+
+  /*Descktop screen and (max-width: 600px) */
+
+  @media screen and (max-width: 600px) {
+    /* Police */
+
+    .primary_h1 {
+        font-size: 1.5em;
+    }
+
+    .primary_h2 {
+        font-size: 1.3em;
+    }
+
+    .primary_h3 {
+        font-size: 1.2em;
+    }
+
+    /* Button */ 
+
+    .primary_btn {
+        font-size: 1.1em;
+    }
+
+    .secondary_btn {
+        font-size: 0.8em;
+        margin-right: 5px;
+    }
+  }

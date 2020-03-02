@@ -140,7 +140,11 @@ if (isset($_GET['action'])){
     }
     
     else {
-        require('view/frontend/loginView.php');
+        if (isset($_SESSION['auth'])) {
+            listActeurs();
+        }else {
+            require('view/frontend/loginView.php'); 
+        }  
     }
    
 }else {

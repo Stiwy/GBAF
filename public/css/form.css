@@ -62,6 +62,47 @@ label {
     font-size: 1em;
     margin-left: 5px;
 }
-tr {
-    margin-bottom: 20px;
+
+/*Descktop screen and (max-width: 1400px) */
+
+@media screen and (max-width: 1400px) {
+    
+}
+
+/*Descktop screen and (max-width: 990px) */
+
+@media screen and (max-width: 990px) {
+  
+
+}
+
+/*Descktop screen and (max-width: 860px) */
+
+@media screen and (max-width: 860px) {
+    .label {
+        font-size: 1.1em;
+    }
+
+    .checkbox {
+        font-size: 0.9em;
+    }
+
+    .input {
+        font-size: 1em;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .label {
+        font-size: 1em;
+    }
+
+    .checkbox {
+        font-size: 0.7em;
+    }
+
+    .input {
+        font-size: 0.8em;
+    }
 }

@@ -29,12 +29,36 @@ section {
     font-size: 1.1em;
 }
 
-div > h2 {
-    font-size: 1.7em;
-    margin-bottom: 20px;
-    text-decoration: underline lightslategray;
-}
-
 .span_account {
     font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+
+    #title_form {
+        font-size: 1.3em;
+    }
+
+    #sub_title {
+        font-size: 1.2em;
+    }
+
+    #show_profile_avatar img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+    }
+
+    #username_account, #about > h2, #account_information > h2 {
+        font-weight: bold;
+        font-size: 1em;
+    }
+    
+    #details {
+        font-size: 0.8em;
+    }
+
+    #about > p, #account_information > p {
+        font-size: 0.8em;
+    }
 }

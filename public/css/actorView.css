@@ -12,10 +12,6 @@
     box-shadow: whitesmoke 3px 3px 6px;
 }
 
-#actor_section > div > h2 {
-    text-decoration: none;
-}
-
 /* Commentaire */
 
 #title_comment > h2 {
@@ -44,16 +40,8 @@
     width: 45px;
 }
 
-#add_comment {
-    margin-top: 20px;
-    padding: 5px 5px 5px 5px;
-    border: 1px solid lightslategray;
-    box-shadow: lightslategray 3px 3px 6px;
-    border-radius: 15px;
-    background-color: whitesmoke;
-}
-
 #form_comment {
+    display: -webkit-box;
     display: flex;
 }
 
@@ -87,7 +75,8 @@
     background-color: white;
     color: red;
     border: 2px solid red;
-    transition-delay: 0.2;
+    -webkit-transition-delay: 0.2;
+            transition-delay: 0.2;
     box-shadow: lightslategray 2px 2px 6px;
 
 }
@@ -112,3 +101,90 @@
 #post_comment {
     margin-top: 10px;
 }
+
+/*Descktop screen and (max-width: 1400px) */
+
+@media screen and (max-width: 1400px) {
+
+  }
+
+  /*Descktop screen and (max-width: 990px) */
+
+@media screen and (max-width: 990px) {
+    .actor_logo > img {
+        width: 700px;
+    }
+  }
+
+  /*Descktop screen and (max-width: 860px) */
+
+  @media screen and (max-width: 860px) {
+    .actor_logo > img {
+        width: 500px;
+    }
+    
+
+    #actor_title {
+        font-size: 1.3em;
+    }
+
+    #actor_section > div {
+        font-size: 0.7em;
+    }
+
+    #title_comment > h2 {
+        font-size: 1.3em;
+    }
+  }
+
+  /*Descktop screen and (max-width: 500px) */
+
+  @media screen and (max-width: 600px) {
+    .actor_logo > img {
+        width: 270px;
+    }
+
+    #title_comment > h2 {
+        font-size: 1.1em;
+    }
+
+    #vote {
+        margin-right: 10px;
+        height: 35px;
+    }
+    
+    #vote > p {
+        font-size: 0.8em;
+    }
+    
+    #vote > p > a > img{
+        width: 35px;
+    }
+
+    #btn_add_comment {
+        font-size: 0.8em;
+        margin-right: 5px;
+    }
+
+    #comment_list {
+        font-size: 0.9em;
+    }
+
+    #comment_col_left {
+        display: -webkit-box;
+        display: flex;
+    }
+
+    #comment_col_left > p > img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #comment_list_firstname {
+        margin: 25px 0 0 10px;
+    }
+
+    #comment_col_right {
+        margin-top: 50px;
+    }
+  }
