@@ -59,10 +59,7 @@
 
     <!-- =====Footer===== -->
     <section id="footer" class="static-bottom">
-        <div>
-            <a class="footer_1" href="#">Mention légal</a>
-            <a class="footer_2" href="#">Contact</a>
-        </div>  
+        <?php include('model/include/footer.php'); ?> 
     </section>
     <!-- =====Footer===== -->
     

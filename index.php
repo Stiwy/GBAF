@@ -159,6 +159,8 @@ if (isset($_GET['action'])){
             header('location: index.php');
         }
     // index.php -- home page
+    }elseif ($_GET['action'] == 'legal') {
+        require('view/frontend/generalConditionsView.php');
     }else {
         if (isset($_SESSION['auth'])) {
             listActeurs();

@@ -6,7 +6,7 @@
     
     <div class="primary_background my-5">
         <h1 class="primary_h1 text-white">Se connecter</h1>
-        <h3 class="primary_h3 text-white">Connectez-vous pour accéder à votre éspace extranet</h3>
+        <h3 class="primary_h3 text-white">Connectez-vous pour accéder à votre espace extranet</h3>
 
         <div class="ml-5 mt-3 mb-3">
             <a class="btn btn-danger btn-sm" href="index.php?action=register" role="button">Pas encore inscrit ?</a>
@@ -45,10 +45,7 @@
 
     <!-- =====Footer===== -->
     <section id="footer" class="fixed-bottom">
-        <div>
-            <a class="footer_1" href="#">Mention légal</a>
-            <a class="footer_2" href="#">Contact</a>
-        </div>  
+        <?php include('model/include/footer.php'); ?> 
     </section>
     <!-- =====Footer===== -->
     
