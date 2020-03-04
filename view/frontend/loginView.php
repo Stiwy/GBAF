@@ -4,9 +4,9 @@
     <?php require('model/include/flash.php'); ?>
 
     
-    <div class="primary_background my-5">
-        <h1 class="primary_h1 text-white">Se connecter</h1>
-        <h3 class="primary_h3 text-white">Connectez-vous pour accéder à votre espace extranet</h3>
+    <div class="my-5">
+        <h1 class="primary_h1">Se connecter</h1>
+        <h3 class="primary_h3">Connectez-vous pour accéder à votre espace extranet</h3>
 
         <div class="ml-5 mt-3 mb-3">
             <a class="btn btn-danger btn-sm" href="index.php?action=register" role="button">Pas encore inscrit ?</a>
@@ -42,12 +42,6 @@
             </div>
         </form>
     </div>
-
-    <!-- =====Footer===== -->
-    <section id="footer" class="fixed-bottom">
-        <?php include('model/include/footer.php'); ?> 
-    </section>
-    <!-- =====Footer===== -->
     
 <?php $content = ob_get_clean(); ?>
 

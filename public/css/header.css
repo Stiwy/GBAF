@@ -1,5 +1,5 @@
 header {
-    background-color: lightgray;
+    background-color: gray;
     padding: 0 150px 0 60px;
     margin: 0;
     border-bottom: 1px red solid;
@@ -21,9 +21,13 @@ header {
     border-radius: 50px;
 }
 
+#li_auth > span {
+    color: white;
+}
+
 #menu ul li:hover #sub_menu {
     visibility: visible;
-    background-color: lightgray;
+    background-color: gray;
     border-bottom: 1px red solid;
     transition-delay: 0.1s;
 }
@@ -34,10 +38,6 @@ header {
     position: absolute;
     z-index: 1;
     padding: 10px 40px 10px 40px;
-}
-
-#sub_menu li a{
-    color: black;
 }
 
 #sub_menu li a:hover{
@@ -52,6 +52,7 @@ header {
 #menu li a {
     color: black;
     margin-right: 15px;
+    color: white;
 }
 
 #nav_connect > a:hover {

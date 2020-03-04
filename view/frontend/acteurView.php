@@ -32,7 +32,7 @@
         <div class="add_comment">
             <?php if(!isset($_POST['add_comment'])): ?>
                 <form method="post" class="row justify-content-end">
-                    <input type="submit" class="secondary_btn" name="add_comment" value="Ajouter un commentaie">
+                    <input type="submit" class="primary_btn" name="add_comment" value="Ajouter un commentaie">
                 </form>
             <?php else: ?>
                 <form action="index.php?action=addcomment&amp;id_acteur=<?= $acteur['id_acteur'] ?>" method="post">
@@ -67,12 +67,6 @@
         <?php endwhile ; ?>
         
     </section>
-
-    <!-- =====Footer===== -->
-    <section id="footer" class="static-bottom">
-        <?php include('model/include/footer.php'); ?> 
-    </section>
-    <!-- =====Footer===== -->
     
 <?php $content = ob_get_clean(); ?>
 

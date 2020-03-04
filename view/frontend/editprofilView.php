@@ -14,10 +14,10 @@
     ?>
 
     <!-- Form edit profil -->
-    <div class="primary_background my-5">
+    <div class="my-5">
 
-        <h1 class="primary_h1 text-white">Editer mon profil</h1>
-        <h3 class="primary_h3 text-white">Modifier votre profil utilisateur</h3>
+        <h1 class="primary_h1">Editer mon profil</h1>
+        <h3 class="primary_h3">Modifier votre profil utilisateur</h3>
 
         <div class="ml-5 mt-3 mb-3">
             <a class="btn btn-warning btn-sm" href="index.php?action=editpassword" role="button">Modifier le mot de passe</a>
@@ -45,7 +45,7 @@
                 <div class="primary_input">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupPrepend"><svg class="bi bi-person-fill" width="1.4em" height="1.4em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 16s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H5zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg></span>
+                            <span class="input-group-text" id="inputGroupPrepend"><svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 16s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H5zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg></span>
                         </div>
                         <input type="text" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="username" id="username" value="<?= $_SESSION['auth']['username']?>">
                     </div>
@@ -92,12 +92,6 @@
                 </div> 
         </form>
     </div>
-
-    <!-- =====Footer===== -->
-    <section id="footer" class="fixed-bottom">
-        <?php include('model/include/footer.php'); ?> 
-    </section>
-    <!-- =====Footer===== -->
     
 <?php $content = ob_get_clean(); ?>
 

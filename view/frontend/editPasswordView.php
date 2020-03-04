@@ -68,12 +68,6 @@
             </div>
         </form>
     </div>
-
-    <!-- =====Footer===== -->
-    <section id="footer" class="fixed-bottom">
-        <?php include('model/include/footer.php'); ?> 
-    </section>
-    <!-- =====Footer===== -->
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/template.php'); ?>

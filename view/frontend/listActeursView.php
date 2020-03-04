@@ -56,12 +56,6 @@
             <?php endwhile ; ?>
         </section>
     </section>
-
-    <!-- =====Footer===== -->
-    <section id="footer" class="static-bottom">
-        <?php include('model/include/footer.php'); ?> 
-    </section>
-    <!-- =====Footer===== -->
     
 <?php $content = ob_get_clean(); ?>
 

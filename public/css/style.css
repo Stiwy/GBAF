@@ -35,28 +35,7 @@ body {
 
 /* Button */
 
-.primary_btn{
-    background-color: red;
-    color: lightgray;
-    border: 1px solid red;
-    font-size: 1.4em;
-    padding: 5px 5px 5px 5px;
-    margin-left: 25px;
-    text-decoration: none;
-    text-align: center;
-    vertical-align: middle;
-    margin-bottom: 410px;
-}
-
-.primary_btn:hover {
-    background-color: white;
-    color: red;
-    border: 2px solid red;
-    transition-delay: 0.2;
-    box-shadow: lightslategray 2px 2px 6px;
-}
-
-.secondary_btn {
+.primary_btn {
     margin-top: 20px;
     padding: 5px 5px 5px 5px;
     border: 1px solid lightslategray;
@@ -65,20 +44,12 @@ body {
     background-color: whitesmoke;
 }
 
-.secondary_btn:hover {
+.primary_btn:hover {
     background-color: white;
     color: red;
     border: 1px solid red;
     -webkit-transition-delay: 0.2;
             transition-delay: 0.2;
-}
-
-/* Background */
-
-.primary_background {
-    background: linear-gradient(280deg, rgb(112, 111, 111), transparent);
-    padding-bottom: 30px;
-    border-radius: 15px;
 }
 
 /*Descktop screen and (max-width: 1400px) */
@@ -140,7 +111,7 @@ body {
         font-size: 1.1em;
     }
 
-    .secondary_btn {
+    .primary_btn {
         font-size: 0.8em;
         margin-right: 5px;
     }
