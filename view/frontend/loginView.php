@@ -45,4 +45,6 @@
     
 <?php $content = ob_get_clean(); ?>
 
+<?php $footer = 'fixed-bottom';?>
+
 <?php require('view/template.php'); ?>

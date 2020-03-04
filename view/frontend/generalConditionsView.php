@@ -1,4 +1,4 @@
-<?php $title = 'GBAF | Nos acteurs'; ?>
+<?php $title = 'GBAF | Nos conditions'; ?>
 
 <?php ob_start(); ?>
 <div class="container">
@@ -108,5 +108,7 @@
 	</ol>
 </div>
 <?php $content = ob_get_clean(); ?>
+
+<?php $footer = 'static-bottom';?>
 
 <?php require('view/template.php'); ?>

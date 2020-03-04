@@ -161,6 +161,8 @@ if (isset($_GET['action'])){
     // index.php -- home page
     }elseif ($_GET['action'] == 'legal') {
         require('view/frontend/generalConditionsView.php');
+    }elseif ($_GET['action'] == 'contact') {
+        require('view/frontend/contactUsView.php');     
     }else {
         if (isset($_SESSION['auth'])) {
             listActeurs();

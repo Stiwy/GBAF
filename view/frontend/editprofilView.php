@@ -1,4 +1,4 @@
-<?php $title = 'GBAF | S\'inscrire';?>
+<?php $title = 'GBAF | Profil';?>
 
 <?php ob_start(); ?>
     <?php require('model/include/flash.php'); ?>
@@ -94,5 +94,7 @@
     </div>
     
 <?php $content = ob_get_clean(); ?>
+
+<?php $footer = 'fixed-bottom';?>
 
 <?php require('view/template.php'); ?>

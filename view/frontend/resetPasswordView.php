@@ -1,4 +1,4 @@
-<?php $title = 'GBAF | Réinitialisation'; ?>
+<?php $title = 'GBAF | Profil'; ?>
 
 <?php ob_start(); ?>
     <?php require('model/include/flash.php'); ?>
@@ -57,5 +57,7 @@
         </form>
     </div>
 <?php $content = ob_get_clean(); ?>
+
+<?php $footer = 'fixed-bottom';?>
 
 <?php require('view/template.php'); ?>

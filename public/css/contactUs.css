@@ -1,0 +1,57 @@
+/* Contact méthod */
+
+.div_contact {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    border: solid red 2px;
+    box-shadow: rgb(121, 4, 4) 3px 3px 3px;
+    border-radius: 25px;
+    text-align: center;
+    padding: 15px 0 20px 0;
+    height: 300px;
+}
+
+.div_contact > p {
+    margin: 30px 20px 30px 20px;
+}
+
+.div_contact > a {
+    display: block;
+    margin-top: 20px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid lightslategray;
+    box-shadow: lightslategray 3px 3px 6px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    color: black;
+}
+
+.div_contact > a:hover {
+    text-decoration: none;
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    -webkit-transition-delay: 0.2;
+            transition-delay: 0.2;
+}
+
+#contact_phone {
+    display: block;
+    margin-top: 20px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid lightslategray;
+    box-shadow: lightslategray 3px 3px 6px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    color: black;
+    font-weight: 600;
+}
+
+/*contact form*/
+
+#div_contact_form > h2{
+    text-align: center;
+    margin-bottom: 55px;
+    border-top: 2px solid grey;
+    padding-top: 30px
+}
