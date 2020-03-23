@@ -113,7 +113,7 @@ class VoteManager extends Manager
         $req->execute(array($id_acteur));
         $reqLikes = $req->fetch();
 
-        if ($reqLikes['vote'] == 1) {
+        if ($reqLikes['vote'] == 1 && $reqLikes['id_user'] == $_SESSION['auth']['id_user']) {
             $greenLikes = "Like_green.png";
 
             return $greenLikes;
@@ -132,7 +132,7 @@ class VoteManager extends Manager
         $req->execute(array($id_acteur));
         $reqLikes = $req->fetch();
 
-        if ($reqLikes['vote'] == 2) {
+        if ($reqLikes['vote'] == 2 && $reqLikes['id_user'] == $_SESSION['auth']['id_user']) {
             $redDislikes = "Dislike_red.png";
 
             return $redDislikes;

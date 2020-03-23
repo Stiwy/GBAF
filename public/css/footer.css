@@ -17,6 +17,12 @@ footer {
     bottom: 0em;
 }
 
+.static-full {
+    margin-top: 80px;
+    position: static;
+    bottom: 0em;
+}
+
 .footer_1 {
     color: white;
     border-right: 2px solid white;

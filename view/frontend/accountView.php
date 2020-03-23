@@ -27,7 +27,7 @@
         </div>
 
         <div id="about">
-            <h2 class="primary_h2">A propos de moi :</h2>
+            <h2 class="primary_h2">À propos de moi :</h2>
             <p class="primary_p"><span class="span_account">Prénom :</span> <?= $_SESSION['auth']['firstname'] ?></p>
             <p class="primary_p"><span class="span_account">Nom de famille :</span> <?= $_SESSION['auth']['name'] ?></p>
         </div>
@@ -41,6 +41,6 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php $footer = 'fixed';?>
+<?php $footer = 'static-full';?>
 
 <?php require('view/template.php'); ?>

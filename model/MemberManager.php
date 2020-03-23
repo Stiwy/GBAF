@@ -81,7 +81,7 @@ class MemberManager extends Manager
             $member = $db->prepare('INSERT INTO account(name, firstname, username, password, question, reply, avatar, registration_date) VALUES(?, ?, ?, ?, ?, ?, ?, NOW())');
             $affectLines = $member->execute(array($name, $firstname, $username, $password, $question, $reply, $avatar));
 
-            $_SESSION['flash']['success'] = "Inscription réussi ! Vous pouvez vous connctez";
+            $_SESSION['flash']['success'] = "Inscription réussie ! Vous pouvez vous connecter";
             header('Location: index.php');
 
             return $affectLines;

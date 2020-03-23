@@ -107,10 +107,10 @@ function vote($vote, $id_acteur, $id_user)
     $addVote = $voteManager->addVote($vote, $id_acteur, $id_user); 
 }
 
-function sendMail($name, $mail, $subject, $category, $message)
+function sendMail($name, $mail, $subject, $message)
 {
     $contact = new Contact();
 
-    $mail = $contact->mail($name, $mail, $subject, $category, $message);
+    $mail = $contact->mail($name, $mail, $subject, $message);
 }
 

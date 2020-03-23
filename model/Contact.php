@@ -3,7 +3,7 @@
 Class Contact 
 {
 
-	function mail($name, $mail, $subject, $category, $message) 
+	function mail($name, $mail, $subject, $message) 
 	{
 		session_start();
 
@@ -17,13 +17,9 @@ Class Contact
 		}
 		
 		if (empty($mail)|| !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-			$errors['mail'] = 'Veuillez renseigner un email valide !';
+			$errors['mail'] = 'Veuillez renseigner un e-mail valide !';
 		}else {
 			$input['mail'] = $mail;
-		}
-		
-		if (empty($category)) {
-			$errors['category'] = 'Veuillez sélectionner une catégorie';
 		}
 		
 		if (empty($subject) || strlen($subject) <= 3 || strlen($subject) >= 100) {
@@ -41,10 +37,10 @@ Class Contact
 		if (!empty($errors)) {
 			$_SESSION['errors'] = $errors;
 			$_SESSION['input'] = $input;
-			header('Location: index.php?action=contact&through=mail&#div_contact_form');
+			header('Location: index.php?page=contact&through=mail&#div_contact_form');
 		}else {
 			$to      = 'stiwy@caritey-developpement.fr';
-			$subject = $category . " " . $subject;
+			$subject = $subject;
 			$message = 'De :' . $name  . "\r\n" . $message;
 			$message = wordwrap($message, 70, "\r\n");
 			$headers = 'From: ' . $mail . "\r\n" .
@@ -53,8 +49,8 @@ Class Contact
 
 			mail($to, $subject, $message, $headers);
 
-			$_SESSION['flash']['success'] = 'Votre email à bien été envoyé !';
-			header('Location: index.php?action=contact&through=mail&#div_contact_form');
+			$_SESSION['flash']['success'] = 'Votre e-mail à bien été envoyé !';
+			header('Location: index.php?page=contact&through=mail&#div_contact_form');
 		}
 	}  
 }

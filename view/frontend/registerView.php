@@ -95,8 +95,8 @@
 
             <div class="custom-control custom-checkbox ml-2 mb-3">
                 <input type="checkbox" class="custom-control-input" id="customControlValidation1" name="cg" required>
-                <label class="custom-control-label d-none d-sm-inline" for="customControlValidation1">Confirmez avoir lu et accepté les <a href="index.php?action=legal">conditions général d'utilisation</a>.</label>
-                <label class="custom-control-label d-sm-none" for="customControlValidation1"><a href="index.php?action=legal">conditions général d'utilisation</a>.</label>
+                <label class="custom-control-label d-none d-sm-inline" for="customControlValidation1">Confirmez avoir lu et accepté les <a href="index.php?page=legal">conditions général d'utilisation</a>.</label>
+                <label class="custom-control-label d-sm-none" for="customControlValidation1"><a href="index.php?page=legal">conditions général d'utilisation</a>.</label>
                 
                 <div class="invalid-feedback">Vous devez lire et accepter les conditions général d'utilisation</div>
             </div>

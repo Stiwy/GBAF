@@ -8,7 +8,7 @@
         <!-- head -->
         <div>
         <h1 class="primary_h1">Nous contacter</h1>
-        <h3 class="primary_h3">Pour toute demande vous trouverez ci-dessous, un formulaire de contact et notre numéros de l'assistance téléphonique.</h3>
+        <h3 class="primary_h3">Pour toute demande vous trouverez ci-dessous, un formulaire de contact et notre numéro de l'assistance téléphonique.</h3>
         </div>
         
         <!-- Contact méthod -->
@@ -16,7 +16,7 @@
         	<div id="block_contact_phone" class="div_contact col-md-5">
 	            <h2>Assistance téléphonique</h2>
 
-	            <p>Vous serez mis en relation avec un de nos conseillers qui vous répondra dans les meilleurs délais <br>.Une réponse vous seras transmise sur votre boite mail, de l'adresse indiqué.</p>
+	            <p>Vous serez mis en relation avec un de nos conseillers qui vous répondra dans les meilleurs délais. <br>Une réponse vous seras transmise sur votre boite mail, de l'adresse indiqué.</p>
 
 	            <?php if (isset($_GET['through']) && $_GET['through'] == 'phone') :?>
 	            <p id='contact_phone'>03 29 12 12 12</p>
@@ -45,12 +45,8 @@
         		<div class="row">
 					<div class="col-md-5">
 						<label for="name">Nom</label>
-                        <?php if (isset($_SESSION['auth'])) : ?> 
-                                <input class="form-control is-valid" id="name" name="name" value="<?= $_SESSION['auth']['name']?>" disabled> 
-                        <?php else :?> 
-                            <input class="form-control is-invalid" id="name" name="name" <?= (isset($_SESSION['input']['name'])) ? "value=\"" . $_SESSION['input']['name'] . "\"" : "placeholder=\"Nom\"";?> required>
-                            <div class="invalid-feedback">Veuillez saisir votre nom.</div> 
-                        <?php endif ; ?>
+                        <input class="form-control is-invalid" id="name" name="name" <?= (isset($_SESSION['input']['name'])) ? "value=\"" . $_SESSION['input']['name'] . "\"" : "placeholder=\"Nom\"";?> required>
+                        <div class="invalid-feedback">Veuillez saisir votre nom.</div> 
 					</div>
 
 					<div class="col-md-7">
@@ -65,7 +61,7 @@
 				</div>
         		<div class="row">
 
-        			<div class="col-md-9">
+        			<div class="col-md-12">
 						<label for="subject">Objet :</label>
                         <div class="input-group">
                     		<input type="text" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="subject" id="subject"  <?= (isset($_SESSION['input']['subject'])) ? "value=\"" . $_SESSION['input']['subject'] . "\"" : "placeholder=\"Objet\"";?> required>
@@ -73,20 +69,6 @@
 	                        	Veuillez saisir l'objet de votre objet.
 	                    	</div>
                 		</div>
-            		</div>
-
-					<div class="form-group col-md-3">
-						<label for="category">categorie</label>
-						<select id="category" class="custom-select" required>
-							<option value="">Séléctioner une catégorie</option>
-							<option value="Question">Question</option>
-							<option value="Avis">Avis</option>
-							<option value="Assistance">Assistance</option>
-							<option value="Autre">Autre</option>
-						</select>
-						<div class="invalid-feedback">
-                        Veuillez éléctioner une catégorie
-                        </div>
 					</div>
 				</div>
 
@@ -94,7 +76,7 @@
 					<div class="primary_input col-md-12">
 						<label for="message">Votre message :</label>
                         <div class="input-group">
-                    		<textarea rows="15" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="message" id="message"  <?= (isset($_SESSION['input']['message'])) ? "value=\"" . $_SESSION['input']['message'] . "\"" : "placeholder=\"Votre message\"";?> required></textarea>
+                    		<textarea rows="15" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="message" id="message"  <?= (isset($_SESSION['input']['message'])) ? "value=\"" . $_SESSION['input']['message'] . "\"" : "placeholder=\"Votre message\"";?> minlength="5" required></textarea>
 	                    	<div class="invalid-feedback">
 	                        	Veuillez saisir votre message.
 	                    	</div>
@@ -108,9 +90,10 @@
         	</form>
         </div>
         <?php else : 
-        	$footer = 'fixed'; 
         endif;?>
 	</section>
+<?php $footer = 'static';  ?>
+
 <?php unset($_SESSION['input']); ?>	
 
 <?php $content = ob_get_clean(); ?>

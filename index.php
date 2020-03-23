@@ -139,7 +139,7 @@ if (isset($_GET['action'])){
         require('view/frontend/contactUsView.php');
 
     }elseif ($_GET['page'] == 'sendmail') {
-        sendMail($_POST['name'], $_POST['mail'], $_POST['subject'], $_POST['category'], $_POST['message']);
+        sendMail($_POST['name'], $_POST['mail'], $_POST['subject'], $_POST['message']);
     }else {
         header('Location: index.php');
     }

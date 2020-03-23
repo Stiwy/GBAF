@@ -20,20 +20,20 @@
                 <h2 class="primary_h2">Commentaires (<?= $countComment ?>)</h2>
             </div>
             <div id="vote" class="row">
-                <p class="col-6"><?= $getLikes ;?><a href="index.php?action=addvote&amp;vote=1&amp;id_acteur=<?= $acteur['id_acteur'] ?>"><img src="public/image/icons/<?= $greenLikes ?>" alt=""></a></p>
-                <p class="col-6"><?= $getDisLikes ;?><a href="index.php?action=addvote&amp;vote=2&amp;id_acteur=<?= $acteur['id_acteur'] ?>"><img src="public/image/icons/<?= $redDislikes ?>" alt=""></a></p>
+                <p class="col-6"><?= $getLikes ;?><a href="index.php?action=addvote&amp;vote=1&amp;id_acteur=<?= $acteur['id_acteur'] ?>&amp;#vote"><img src="public/image/icons/<?= $greenLikes ?>" alt=""></a></p>
+                <p class="col-6"><?= $getDisLikes ;?><a href="index.php?action=addvote&amp;vote=2&amp;id_acteur=<?= $acteur['id_acteur'] ?>&amp;#vote"><img src="public/image/icons/<?= $redDislikes ?>" alt=""></a></p>
             </div>  
-        </div>
+        </div> 
         
         <!-- Add comment -->
-        <div class="add_comment">
+        <div id="add_comment">
             <?php if(!isset($_POST['add_comment'])): ?>
-                <form method="post" class="row justify-content-end">
+                <form method="post" action="index.php?action=acteur&id_acteur=4&#add_comment" class="row justify-content-end">
                     <input type="submit" class="primary_btn mb-5" name="add_comment" value="Ajouter un commentaie">
                 </form>
             <?php else: ?>
                 <form action="index.php?action=addcomment&amp;id_acteur=<?= $acteur['id_acteur'] ?>" method="post">
-                    <p class="primary_p">Votres avis nous intéraisse <?=$_SESSION['auth']['firstname']?> !</p>
+                    <p class="primary_p">Votres avis nous intérésse <?=$_SESSION['auth']['firstname']?> !</p>
                     <div id="form_comment">
                         <label class="form_comment_label d-none d-md-block" for="post"><img class="avatar" src="public/image/avatar/<?=$_SESSION['auth']['avatar']?>" alt=""></label>
                         <input type="text" class="input" name="post" placeholder="Ajouter un commentaire">
