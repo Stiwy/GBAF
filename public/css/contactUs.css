@@ -55,3 +55,28 @@
     border-top: 2px solid grey;
     padding-top: 30px
 }
+
+  /*Descktop screen and (max-width: 500px) */
+
+  @media screen and (max-width: 700px) {
+
+    .div_contact {
+        height: 280px;
+    }
+
+    .div_contact > h2 {
+        font-size: 1.3em;
+    }
+
+    .div_contact > p {
+        font-size: 0.8em;
+    }
+
+    .div_contact > a {
+        font-size: 0.8em;
+    }
+    
+    #contact_phone {
+        font-size: 0.8em;
+    }
+  }

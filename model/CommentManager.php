@@ -21,7 +21,7 @@ class CommentManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $req = $db->prepare('SELECT p.id_post, p.post, p.date_add, a.firstname, a.avatar FROM account a INNER JOIN post p ON p.id_user = a.id_user WHERE id_acteur = ? ORDER BY p.date_add DESC');
+        $req = $db->prepare('SELECT p.id_post, p.post, DATE_FORMAT( p.date_add, \'%d/%m/%Y\') as date_add_fr, a.firstname, a.avatar FROM account a INNER JOIN post p ON p.id_user = a.id_user WHERE id_acteur = ? ORDER BY p.date_add DESC');
         $req->execute(array($id_acteur));
         
         return $req;

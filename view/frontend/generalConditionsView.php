@@ -109,6 +109,6 @@
 </div>
 <?php $content = ob_get_clean(); ?>
 
-<?php $footer = 'static-bottom';?>
+<?php $footer = 'static';?>
 
 <?php require('view/template.php'); ?>

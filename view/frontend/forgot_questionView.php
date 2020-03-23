@@ -43,6 +43,6 @@
     </div>
 <?php $content = ob_get_clean(); ?>
 
-<?php $footer = 'fixed-bottom';?>
+<?php $footer = 'fixed';?>
 
 <?php require('view/template.php'); ?>

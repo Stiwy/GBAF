@@ -3,6 +3,7 @@ require_once('model/MemberManager.php');
 require_once('model/ActeurManager.php');
 require_once('model/CommentManager.php');
 require_once('model/VoteManager.php');
+require_once('model/Contact.php');
 
 
 // ----- Member connection ----- 
@@ -64,7 +65,7 @@ function editPassword($postusername, $password_old, $password, $password_confirm
     $affectLines = $memberManager->editPasswordMember($postusername, $password_old, $password, $password_confirm);
 }
 
-// ----- Acteurs pages -----
+// ----- Other pages -----
 
 function listacteurs()
 {
@@ -72,7 +73,7 @@ function listacteurs()
 
     $acteurs = $acteurManager->getActeurs();
 
-    require ('view/frontend/listacteursView.php');
+    require('view/frontend/listActeursView.php'); 
 }
 
 function acteur()
@@ -104,5 +105,12 @@ function vote($vote, $id_acteur, $id_user)
     $voteManager = new VoteManager();
 
     $addVote = $voteManager->addVote($vote, $id_acteur, $id_user); 
+}
+
+function sendMail($name, $mail, $subject, $category, $message)
+{
+    $contact = new Contact();
+
+    $mail = $contact->mail($name, $mail, $subject, $category, $message);
 }
 

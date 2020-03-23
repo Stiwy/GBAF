@@ -27,13 +27,10 @@
 
     <?= $content ?>
 
-    
-    <section id="footer" class="<?= $footer ?>">
-        <div>
-            <a class="footer_1" href="index.php?action=legal">Mention légal</a>
-            <a class="footer_2" href="index.php?action=contact">Contact</a>
-        </div>  
-    </section>
+    <footer class="<?= $footer ?>">
+        <a class="footer_1" href="index.php?page=legal">Mention légal</a>
+        <a class="footer_2" href="index.php?page=contact">Contact</a>
+    </footer>
     
 </body>
 </html>

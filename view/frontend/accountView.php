@@ -2,16 +2,15 @@
 
 <?php ob_start(); ?>
     <?php require('model/include/flash.php'); ?>
-    <?php 
-        setlocale(LC_TIME, 'fr');
-        $registration_date = utf8_encode(ucfirst(strftime('%A %d ' ,strtotime($_SESSION['auth']['registration_date']))));
-        $registration_date .= utf8_encode(ucfirst(strftime('%B %Y' ,strtotime($_SESSION['auth']['registration_date']))));
-    ?>
 
     <h1 class="primary_h1">Votre compte</h1>
     <h3 class="primary_h3">Bonjour <?= $_SESSION['auth']['firstname']?></h3>
 
     <section class="container">
+
+    <?php 
+        $registration_date = utf8_encode(strftime('%d/%m/%Y' ,strtotime($_SESSION['auth']['registration_date'])));
+    ?>
 
         <div class="ml-5 mt-3 mb-3">
             <a class="btn btn-danger btn-md" href="index.php?action=editprofil" role="button">Modifier</a>
@@ -42,6 +41,6 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php $footer = 'fixed-bottom';?>
+<?php $footer = 'fixed';?>
 
 <?php require('view/template.php'); ?>

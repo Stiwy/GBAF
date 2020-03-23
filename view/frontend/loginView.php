@@ -4,7 +4,7 @@
     <?php require('model/include/flash.php'); ?>
 
     
-    <div class="my-5">
+    <div id="div_login" class="my-5">
         <h1 class="primary_h1">Se connecter</h1>
         <h3 class="primary_h3">Connectez-vous pour accéder à votre espace extranet</h3>
 
@@ -45,6 +45,6 @@
     
 <?php $content = ob_get_clean(); ?>
 
-<?php $footer = 'fixed-bottom';?>
+<?php $footer = 'fixed';?>
 
 <?php require('view/template.php'); ?>

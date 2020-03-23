@@ -1,7 +1,8 @@
 <?php $title = 'GBAF | Contact'; ?>
 
 <?php ob_start(); ?>
-    <!-- <?php require('model/include/flash.php'); ?> -->
+	<?php require('model/include/flash.php'); ?>
+	<?php require('model/include/errorsMessage.php'); ?>
 
     <section class="container">
         <!-- head -->
@@ -12,7 +13,7 @@
         
         <!-- Contact méthod -->
         <div class="row justify-content-between">
-        	<div class="div_contact col-md-5">
+        	<div id="block_contact_phone" class="div_contact col-md-5">
 	            <h2>Assistance téléphonique</h2>
 
 	            <p>Vous serez mis en relation avec un de nos conseillers qui vous répondra dans les meilleurs délais <br>.Une réponse vous seras transmise sur votre boite mail, de l'adresse indiqué.</p>
@@ -20,7 +21,7 @@
 	            <?php if (isset($_GET['through']) && $_GET['through'] == 'phone') :?>
 	            <p id='contact_phone'>03 29 12 12 12</p>
 	            <?php else :?>
-	                <a href="http://localhost/GBAF/index.php?action=contact&amp;through=phone">Voir le numéro</a>
+	                <a href="index.php?page=contact&amp;through=phone&amp;#block_contact_phone">Voir le numéro</a>
 	            <?php endif;?>
             </div>
 
@@ -29,7 +30,7 @@
 
 	            <p>Vous avez consulté notre Centre d’aide et souhaitez néanmoins échanger avec l’un de nos conseillers ? <br> Vous pouvez contacter notre équipe support ou notre équipe commerciale.</p>
 
-	            <a href="http://localhost/GBAF/index.php?action=contact&amp;through=mail&amp;#div_contact_form">Envoyer un email</a>
+	            <a href="index.php?page=contact&amp;through=mail&amp;#div_contact_form">Envoyer un email</a>
             </div>
         </div>
 
@@ -37,23 +38,25 @@
         <?php if (isset($_GET['through']) && $_GET['through'] == 'mail') :?>
         <?php $footer = 'static-bottom';?>
         <div id="div_contact_form">
-            <h2>Contacter directement un conseiller</h2>
-        	<form method="post" action="" class="was-validated">
+			<h2>Contacter directement un conseiller</h2>
+			
+        	<form method="post" action="index.php?page=sendmail" class="was-validated">
+				
         		<div class="row">
 					<div class="col-md-5">
-						<label for="contact_name">Nom et Prénom</label>
+						<label for="name">Nom</label>
                         <?php if (isset($_SESSION['auth'])) : ?> 
-                                <input class="form-control is-valid" id="contact_name" name="contact_name" value="<?= $_SESSION['auth']['name'] . ' ' .$_SESSION['auth']['firstname'] ?>" disabled> 
+                                <input class="form-control is-valid" id="name" name="name" value="<?= $_SESSION['auth']['name']?>" disabled> 
                         <?php else :?> 
-                            <input class="form-control is-invalid" id="contact_name" name="contact_name" placeholder="Nom Prénom" required>
-                            <div class="invalid-feedback">Veuillez saisir votre nom et prénom.</div> 
+                            <input class="form-control is-invalid" id="name" name="name" <?= (isset($_SESSION['input']['name'])) ? "value=\"" . $_SESSION['input']['name'] . "\"" : "placeholder=\"Nom\"";?> required>
+                            <div class="invalid-feedback">Veuillez saisir votre nom.</div> 
                         <?php endif ; ?>
 					</div>
 
 					<div class="col-md-7">
-						<label for="contact_email">Adresse email :</label>
+						<label for="mail">Adresse email :</label>
                         <div class="input-group">
-                    		<input type="mail" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="contact_email" id="contact_email" placeholder="Adresse email" required>
+                    		<input type="email" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="mail" id="mail" <?= (isset($_SESSION['input']['mail'])) ? "value=\"" . $_SESSION['input']['mail'] . "\"" : "placeholder=\"Adresse email\"";?> required>
 	                    	<div class="invalid-feedback">
 	                        	Veuillez saisir votre adresse mail.
 	                    	</div>
@@ -63,9 +66,9 @@
         		<div class="row">
 
         			<div class="col-md-9">
-						<label for="contact_object">Objet :</label>
+						<label for="subject">Objet :</label>
                         <div class="input-group">
-                    		<input type="mail" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="contact_object" id="contact_object" placeholder="Objet" required>
+                    		<input type="text" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="subject" id="subject"  <?= (isset($_SESSION['input']['subject'])) ? "value=\"" . $_SESSION['input']['subject'] . "\"" : "placeholder=\"Objet\"";?> required>
 	                    	<div class="invalid-feedback">
 	                        	Veuillez saisir l'objet de votre objet.
 	                    	</div>
@@ -73,8 +76,8 @@
             		</div>
 
 					<div class="form-group col-md-3">
-						<label for="contact_category">categorie</label>
-						<select id="contact_category" class="custom-select" required>
+						<label for="category">categorie</label>
+						<select id="category" class="custom-select" required>
 							<option value="">Séléctioner une catégorie</option>
 							<option value="Question">Question</option>
 							<option value="Avis">Avis</option>
@@ -89,9 +92,9 @@
 
 				<div class="row">
 					<div class="primary_input col-md-12">
-						<label for="contact_message">Votre message :</label>
+						<label for="message">Votre message :</label>
                         <div class="input-group">
-                    		<textarea rows="15" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="contact_message" id="contact_message" placeholder="Enter votre message" required></textarea>
+                    		<textarea rows="15" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="message" id="message"  <?= (isset($_SESSION['input']['message'])) ? "value=\"" . $_SESSION['input']['message'] . "\"" : "placeholder=\"Votre message\"";?> required></textarea>
 	                    	<div class="invalid-feedback">
 	                        	Veuillez saisir votre message.
 	                    	</div>
@@ -105,9 +108,11 @@
         	</form>
         </div>
         <?php else : 
-        	$footer = 'fixed-bottom'; 
+        	$footer = 'fixed'; 
         endif;?>
-    </section>
+	</section>
+<?php unset($_SESSION['input']); ?>	
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/template.php'); ?>
