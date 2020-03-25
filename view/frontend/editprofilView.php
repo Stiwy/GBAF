@@ -9,9 +9,9 @@
     <div class="my-5">
 
         <h1 class="primary_h1">Editer mon profil</h1>
-        <h3 class="primary_h3">Modifier votre profil utilisateur</h3>
+        <h3 class="primary_h3 mb-5">Modifier votre profil utilisateur</h3>
 
-        <div class="ml-5 mt-3 mb-3">
+        <div class="ml-5 mt-3 mb-5">
             <a class="btn btn-warning btn-sm" href="index.php?action=editpassword" role="button">Modifier le mot de passe</a>
         </div>
 
@@ -78,6 +78,6 @@
     
 <?php $content = ob_get_clean(); ?>
 
-<?php $footer = 'static';?>
+<?php $footer = 'fixed';?>
 
 <?php require('view/template.php'); ?>

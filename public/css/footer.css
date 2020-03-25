@@ -44,14 +44,26 @@ footer > a:hover {
     font-weight: bold;
 }
 
-  /*Descktop screen and (max-width: 500px) */
+  /*Descktop screen and (max-height: 700px) */
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-height: 700px) {
 
     .fixed {
+        margin-top: 20px;
         position: static;
         bottom: 0em;
     }
+
+    .full {
+        margin-top: 80px;
+        position: static;
+        bottom: 0em;
+    }
+  }
+
+  /*Descktop screen and (max-width: 700px) */
+
+  @media screen and (max-width: 700px) {
 
     .footer_1 {
         font-size: 0.8em;

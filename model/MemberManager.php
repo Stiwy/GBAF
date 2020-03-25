@@ -118,7 +118,7 @@ class MemberManager extends Manager
     }
 
     // ----- Forgot password -----
-
+    
     public function forgotMember($username)
     {
         $db = $this->dbConnect();
@@ -135,7 +135,7 @@ class MemberManager extends Manager
             return $question;
         }else {
             $_SESSION['flash']['danger'] = "Cette utilisateur n'existe pas !";
-            header('location: index.php');
+            header('location: index.php?action=forgot');
         }
     }
 
@@ -153,7 +153,7 @@ class MemberManager extends Manager
             return $checkQuestion;
         }else {
             $_SESSION['flash']['danger'] = "Réponse incorrecte !";
-            header('location: index.php');
+            header('location: index.php?action=forgot');
         }
     }
 

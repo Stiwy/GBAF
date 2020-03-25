@@ -69,6 +69,6 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php $footer = 'static';?>
+<?php $footer = 'fixed';?>
 
 <?php require('view/template.php'); ?>

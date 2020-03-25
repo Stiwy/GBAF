@@ -28,7 +28,7 @@
         <!-- Add comment -->
         <div id="add_comment">
             <?php if(!isset($_POST['add_comment'])): ?>
-                <form method="post" action="index.php?action=acteur&id_acteur=4&#add_comment" class="row justify-content-end">
+                <form method="post" action="index.php?action=acteur&id_acteur=<?=$_GET['id_acteur']?> &#add_comment" class="row justify-content-end">
                     <input type="submit" class="primary_btn mb-5" name="add_comment" value="Ajouter un commentaie">
                 </form>
             <?php else: ?>

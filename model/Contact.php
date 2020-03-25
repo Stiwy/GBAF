@@ -37,7 +37,7 @@ Class Contact
 		if (!empty($errors)) {
 			$_SESSION['errors'] = $errors;
 			$_SESSION['input'] = $input;
-			header('Location: index.php?page=contact&through=mail&#div_contact_form');
+			header('Location: index.php?page=contact&through=mail');
 		}else {
 			$to      = 'stiwy@caritey-developpement.fr';
 			$subject = $subject;
@@ -50,7 +50,7 @@ Class Contact
 			mail($to, $subject, $message, $headers);
 
 			$_SESSION['flash']['success'] = 'Votre e-mail à bien été envoyé !';
-			header('Location: index.php?page=contact&through=mail&#div_contact_form');
+			header('Location: index.php?page=contact');
 		}
 	}  
 }

@@ -45,8 +45,7 @@
         		<div class="row">
 					<div class="col-md-5">
 						<label for="name">Nom</label>
-                        <input class="form-control is-invalid" id="name" name="name" <?= (isset($_SESSION['input']['name'])) ? "value=\"" . $_SESSION['input']['name'] . "\"" : "placeholder=\"Nom\"";?> required>
-                        <div class="invalid-feedback">Veuillez saisir votre nom.</div> 
+                        <input class="form-control is-invalid" id="name" aria-describedby="inputGroupPrepend" name="name" <?= (isset($_SESSION['input']['name'])) ? "value=\"" . $_SESSION['input']['name'] . "\"" : "placeholder=\"Nom\"";?> required>
 					</div>
 
 					<div class="col-md-7">
@@ -92,7 +91,7 @@
         <?php else : 
         endif;?>
 	</section>
-<?php $footer = 'static';  ?>
+<?php (isset($_GET['through']) && $_GET['through'] == 'mail') ? $footer = 'static' : $footer ='fixed';  ?>
 
 <?php unset($_SESSION['input']); ?>	
 

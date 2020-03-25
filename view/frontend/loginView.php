@@ -5,7 +5,7 @@
 
     
     <div id="div_login" class="my-5">
-        <h1 class="primary_h1">Se connecter</h1>
+        <h1 class="primary_h1 my-5">Se connecter</h1>
         <h3 class="primary_h3">Connectez-vous pour accéder à votre espace extranet</h3>
 
         <div class="ml-5 mt-3 mb-3">
@@ -37,7 +37,7 @@
                 </div>
             </div>
             
-            <div id="button_login">
+            <div id="button_login" class="mb-5">
                 <input class="btn btn-success" type="submit" value="Se connecter">
             </div>
         </form>

@@ -8,46 +8,40 @@ if (isset($_GET['action'])){
     // Is not connect
     if (!isset($_SESSION['auth'])) {
 
-        // registerView.php
+        //Action = Register 
         if ($_GET['action'] == 'register'){
             if ($_POST){
                 if (isset($_POST['cg'])) { 
-                    registration($_POST['name'], $_POST['firstname'], $_POST['username'], $_POST['password'], $_POST['password_confirm'], $_POST['question'], $_POST['reply']);
+                    postRegistration($_POST['name'], $_POST['firstname'], $_POST['username'], $_POST['password'], $_POST['password_confirm'], $_POST['question'], $_POST['reply']);
                 }else {
-                    $_SESSION['errors']['cg'] = "Veuillez lire et accépter les condition général";
-                    header('Location: index.php?action=register');
+                    registration($e = 1);
                 }
             }else {
-                require('view/frontend/registerView.php');
+                registration($e = 0);
             }
             
-        // loginView.php 
+        //Action = Login
         }elseif ( $_GET['action'] == 'login'){
-            if (!empty($_POST['username']) && !empty($_POST['password'])) {
                 login($_POST['username'], $_POST['password']);
-            }else {
-                $_SESSION['flash']['danger'] = "Identifiant ou mot de passe incorrecte";
-                header('Location: index.php');
-            }
 
-        // forgot_usernameView.php
+        //Action = Forgot
         }elseif ($_GET['action'] == 'forgot') {
-            if ($_POST) {
+            if (isset($_POST['username'])) {
                 forgot($_POST['username']);
             }else {
-                require('view/frontend/forgot_usernameView.php');
+                indexForgot();
             }
-
-        // checkquestion (controller/frontend.php)
+        
+        //Action = Checkquestion
         }elseif ($_GET['action'] == 'checkquestion') {
             forgotQuestion($_SESSION['username'], $_POST['reply']);
 
-        // resetPasswordView.php
+        //Action = Resetpassword
         }elseif ($_GET['action'] == 'resetpassword') {
-            if ($_POST) {
-                resetPassword($_SESSION['username'], $_POST['password'], $_POST['password_confirm']);
+            if (isset($_POST['password'])) {
+                postResetPassword($_SESSION['username'], $_POST['password'], $_POST['password_confirm']);
             }else {
-                require('view/frontend/resetPasswordView.php');
+                resetPassword();
             }
         
         }else {
@@ -57,39 +51,35 @@ if (isset($_GET['action'])){
     // Is connect
     }elseif (isset($_SESSION['auth'])) { 
 
-        // accountView.php
+        //Action = Account
         if ($_GET['action'] == 'account') {
-                require('view/frontend/accountView.php');
+            account();
 
-        // logout (controller/frontend.php)
+        //Action = Logout
         }elseif ($_GET['action'] == 'logout') {
-                logout();er('Location: index.php');
+            logout();
 
-        // editProfilView.php
+        //Action = Editprofil
         }elseif ($_GET['action'] == 'editprofil') {
             if ($_POST) {
                 $avatar =  $_FILES['avatar'];
                 $nameavatar =  $_FILES['avatar']['name'];
                 $tmp_nameavatar = $_FILES['avatar']['tmp_name'];
                 $sizeavatar = $_FILES['avatar']['size'];
-                editProfil($_POST['name'], $_POST['firstname'], $_POST['username'], $_POST['question'], $_POST['reply'], $avatar, $nameavatar, $tmp_nameavatar, $sizeavatar);
+                postEditProfil($_POST['name'], $_POST['firstname'], $_POST['username'], $_POST['question'], $_POST['reply'], $avatar, $nameavatar, $tmp_nameavatar, $sizeavatar);
             }else {
-                require('view/frontend/editProfilView.php');
+                editProfil();
             }
         
-        // editPasswordView.php
+        //Action = Editpassword
         }elseif($_GET['action'] == 'editpassword') {
             if ($_POST) {
-                if (isset($_SESSION['username'])){
-                    editpassword($_SESSION['username'], $_POST['password_old'], $_POST['password'], $_POST['password_confirm']);
-                }else {
-                    header('Location: index.php');
-                }
+                    editpassword($_SESSION['auth']['username'], $_POST['password_old'], $_POST['password'], $_POST['password_confirm']);
             }else {
-                require('view/frontend/editPasswordView.php');
+                editPassword();
             }
             
-        // acteurView.php 
+        //Action = Acteur
         }elseif ($_GET['action'] == 'acteur') {
             if (isset($_GET['id_acteur']) && $_GET['id_acteur'] > 0) {
                 acteur();
@@ -98,7 +88,7 @@ if (isset($_GET['action'])){
                 header('Location: index.php');
             }
 
-        // acteurView.php vote (controller/frontend.php)
+        //Action = Addvote
         }elseif ($_GET['action'] == 'addvote') {
             if (isset($_GET['vote'], $_GET['id_acteur']) AND !empty($_GET['vote']) AND !empty($_GET['id_acteur'])) {
                 $vote = (int) $_GET['vote'];
@@ -110,20 +100,20 @@ if (isset($_GET['action'])){
                 header('location: index.php');
             }
 
-        // acteurView.php comment (controller/frontend.php)
+        //Action = Asscomment
         }elseif ($_GET['action'] == 'addcomment') {
             if (isset($_GET['id_acteur']) && $_GET['id_acteur'] > 0) {
                 if (!empty($_POST['post'])) {
                     comment($_SESSION['auth']['id_user'], $_GET['id_acteur'], $_POST['post']);
                 }else {
-                    $_SESSION['flash']['danger'] = "Veuillez remplir tout les champs du formulaire !";
+                    $_SESSION['flash']['danger'] = "Veuillez remplir le formulaire !";
                     header('Location: index.php?action=acteur&id_acteur=' .  $_GET['id_acteur']);
                 }
             }else {
                 $_SESSION['flash']['danger'] = "Acteur inexistant !";
                 header('location: index.php');
             }
-
+        //Action = More
         }elseif ($_GET['action'] == 'more') {
             listActeurs();
 
@@ -132,22 +122,27 @@ if (isset($_GET['action'])){
         }
     }
 }elseif (isset($_GET['page'])) { 
+
+    //Action = Legal
     if ($_GET['page'] == 'legal') {
-        require('view/frontend/generalConditionsView.php');
-
+        legal();
+    
+    //Action = Contact
     }elseif ($_GET['page'] == 'contact') {
-        require('view/frontend/contactUsView.php');
-
+        contact();    
     }elseif ($_GET['page'] == 'sendmail') {
         sendMail($_POST['name'], $_POST['mail'], $_POST['subject'], $_POST['message']);
+
     }else {
         header('Location: index.php');
     }
 }else {
+
+    //Index
     if (isset($_SESSION['auth'])) {
         listActeurs();
     }else {
-        require('view/frontend/loginView.php'); 
+        index();
     }    
 }
 

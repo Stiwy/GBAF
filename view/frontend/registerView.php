@@ -1,6 +1,11 @@
 <?php $title = 'GBAF | S\'inscrire'; ?>
 
 <?php ob_start(); ?>
+
+
+    <!-- Error message -->
+    <?php include 'model/include/flash.php';?>
+    <?php include 'model/include/errorsMessage.php';?>
     
     <div class="my-5">
 
@@ -10,20 +15,6 @@
         <div class="ml-5 mt-3 mb-3">
             <a class="btn btn-danger btn-sm" href="index.php" role="button">Déjà inscrit ?</a>
         </div>
-
-        <!-- Error message -->
-        <?php
-            if (isset($_SESSION['errors'])) {
-                $errors = $_SESSION['errors'];
-                if (isset($errors)){
-                    echo '<div class="alert alert-danger"><p>Saissie inccorecte veuillez veriffier vos informations</p><ul>';
-                        foreach($errors as $error){
-                            echo '<li>' . $error . '</li>';
-                        }
-                    echo '</ul></div>';
-                }
-            }
-        ?>
 
         <form method="post" action="index.php?action=register" class="was-validated">
             <div class="primary_input input-group">
@@ -107,7 +98,7 @@
         </form>
     </div>
 
-    <?php unset($_SESSION['errors']); unset($_SESSION['input']) ?>  
+    <?php unset($_SESSION['input']) ?>  
     
 <?php $content = ob_get_clean(); ?>
 
