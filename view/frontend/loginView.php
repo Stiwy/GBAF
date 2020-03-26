@@ -6,12 +6,9 @@
     
     <div id="div_login" class="my-5">
         <h1 class="primary_h1 my-5">Se connecter</h1>
-        <h3 class="primary_h3">Connectez-vous pour accéder à votre espace extranet</h3>
+        <h3 class="primary_h3 mb-5">Connectez-vous pour accéder à votre espace extranet</h3>
 
-        <div class="ml-5 mt-3 mb-3">
-            <a class="btn btn-danger btn-sm" href="index.php?action=register" role="button">Pas encore inscrit ?</a>
-        </div>
-        <form method="post" action="index.php?action=login" class="was-validated">
+        <form method="post" action="index.php?action=login" class="was-validated my-5">
         
             <div class="primary_input">
                 <div class="input-group">
@@ -45,6 +42,6 @@
     
 <?php $content = ob_get_clean(); ?>
 
-<?php $footer = 'fixed';?>
+<?php $footer = 'fixed-login';?>
 
 <?php require('view/template.php'); ?>

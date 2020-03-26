@@ -5,26 +5,11 @@ class MemberManager extends Manager
 {
     // ----- Member connection ----- 
 
-    public function addMember($postname, $postfirstname, $postusername, $postpassword, $postpassword_confirm, $postquestion, $postreply)
-    {
-        if (session_status() == PHP_SESSION_NONE){
-            session_start();
-        }
+    public function adminAddMember($postusername, $postpassword, $postpassword_confirm, $postrole){
+        if (session_status() == PHP_SESSION_NONE){session_start();}
 
         $errors = [];
         $input = [];
-        
-        if (empty($postname) || !preg_match('/^[a-zA-Z]{3,15}+$/', $postname)) {
-            $errors['name'] = "Votre nom n'est pas valide !";
-        }else {
-            $input['name'] = $postname;
-        }
-
-        if (empty($postfirstname) || !preg_match('/^[a-zA-Z]{3,15}+$/', $postfirstname)) {
-            $errors['firstname'] = "Votre prénom n'est pas valide !";
-        }else {
-            $input['firstname'] = $postfirstname;
-        }
 
         if (empty($postusername) || !preg_match('/^[a-zA-Z0-9_]{3,25}+$/', $postusername)) {
             $errors['username'] = "Votre nom d'utilisateur n'est pas valide !";
@@ -56,6 +41,44 @@ class MemberManager extends Manager
             }
         }
 
+        if (!empty($errors)) {
+            $_SESSION['errors'] = $errors;
+            $_SESSION['input'] = $input;
+            header('Location: index.php?action=register');
+        }else {
+            $username = htmlspecialchars($postusername);
+            $role =htmlspecialchars($postrole);
+
+            $password = password_hash($postpassword, PASSWORD_BCRYPT);
+
+            $member = $db->prepare('INSERT INTO account(username, password, registration_date, role) VALUES(?, ?, NOW(), ?)');
+            $affectLines = $member->execute(array($username, $password, $role));
+
+            $_SESSION['flash']['success'] = "Inscription réussie ! Un nouveau membre à était ajouté";
+            header('Location: index.php?admin=addmember');
+
+            return $affectLines;
+        }
+    }
+
+    public function addMember($postname, $postfirstname, $postquestion, $postreply)
+    {
+
+        $errors = [];
+        $input = [];
+        
+        if (empty($postname) || !preg_match('/^[a-zA-Z]{3,15}+$/', $postname)) {
+            $errors['name'] = "Votre nom n'est pas valide !";
+        }else {
+            $input['name'] = $postname;
+        }
+
+        if (empty($postfirstname) || !preg_match('/^[a-zA-Z]{3,15}+$/', $postfirstname)) {
+            $errors['firstname'] = "Votre prénom n'est pas valide !";
+        }else {
+            $input['firstname'] = $postfirstname;
+        }
+
         if ($postquestion == 'default') {
             $errors['question'] = "Veuillez choisir une question secrète !";
         }
@@ -71,17 +94,21 @@ class MemberManager extends Manager
         }else {
             $name = htmlspecialchars($postname);
             $firstname = htmlspecialchars($postfirstname);
-            $username = htmlspecialchars($postusername);
             $question = htmlspecialchars($postquestion);
             $reply = htmlspecialchars($postreply);
-            $avatar = '0.png';
 
-            $password = password_hash($postpassword, PASSWORD_BCRYPT);
+            $db = $this->dbConnect();
 
-            $member = $db->prepare('INSERT INTO account(name, firstname, username, password, question, reply, avatar, registration_date) VALUES(?, ?, ?, ?, ?, ?, ?, NOW())');
-            $affectLines = $member->execute(array($name, $firstname, $username, $password, $question, $reply, $avatar));
+            $db->prepare('UPDATE account SET name = ?, firstname = ?, question = ?, reply = ? WHERE username = ?')->execute(array($name, $firstname, $question, $reply, $_SESSION['username']));
 
-            $_SESSION['flash']['success'] = "Inscription réussie ! Vous pouvez vous connecter";
+            $req = $db->prepare('SELECT * FROM account WHERE username = ?');
+            $req->execute(array($_SESSION['username']));
+            $user = $req->fetch();
+
+            $_SESSION['auth'] = $user;
+            unset($_SESSION['username']);
+
+            $_SESSION['flash']['success'] = "Inscription réussie ! Bienvenue sur l'extranet de GBAF";
             header('Location: index.php');
 
             return $affectLines;
@@ -91,16 +118,25 @@ class MemberManager extends Manager
     public function loginMember($username, $password) 
     {
         $db = $this->dbConnect();
-        session_start();
+        if (session_status() == PHP_SESSION_NONE){session_start();}
 
         $req = $db->prepare('SELECT * FROM account WHERE username = ?');
         $req->execute(array($username));
         $user = $req->fetch();
 
         if (password_verify($password, $user['password'])) {
-            $_SESSION['auth'] = $user;
-            $_SESSION['flash']['success'] = "Vous êtes maintenant connecté";
-            header('Location: index.php');
+
+            if ($user['name'] == 'unknown' || $user['firstname'] == 'unknown' || $user['question'] == 'unknown' || $user['reply'] == 'unknown') {
+                $_SESSION['username'] = $username;
+                $_SESSION['flash']['warning'] = "Pour vous connecter veuillez finir l'inscription";
+
+                require 'view/frontend/registerView.php';
+            }else {
+                $_SESSION['auth'] = $user;
+                $_SESSION['flash']['success'] = "Vous êtes maintenant connecté";
+                header('Location: index.php');
+            }
+
         }else {
             $_SESSION['flash']['danger'] = "Identifiant ou mot de passe incorrecte";
             header('Location: index.php');
@@ -167,7 +203,7 @@ class MemberManager extends Manager
 
                 $db = $this->dbConnect();
 
-                $db->prepare('UPDATE account SET password = ? WHERE username = ?')->execute(array($username, $newpassword));
+                $db->prepare('UPDATE account SET password = ? WHERE username = ?')->execute(array($newPassword, $username));
 
                 $_SESSION['flash']['success'] = "Votre mot de passe à été mis à jour !";
                 header('Location: index.php');
@@ -314,7 +350,7 @@ class MemberManager extends Manager
         $user = $req->fetch();
 
         if (empty($postpassword_old) || !password_verify($postpassword_old, $user['password'])) {
-            $errors['password_pld'] = "Mot de passe incorrect !";
+            $errors['passwordold'] = "Mot de passe incorrecte !";
         }
 
         if (empty($postpassword) || $postpassword != $postpassword_confirm) {
@@ -336,7 +372,7 @@ class MemberManager extends Manager
         }else {
             $password = password_hash($postpassword, PASSWORD_BCRYPT);
 
-            $db->prepare('UPDATE account SET password = ? WHERE username = ?')->execute(array($username, $password));
+            $db->prepare('UPDATE account SET password = ? WHERE username = ?')->execute(array($password ,$username));
 
             $_SESSION['flash']['success'] = "Mot de passe changé avec success !";
             header('Location: index.php');

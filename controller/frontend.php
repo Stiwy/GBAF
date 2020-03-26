@@ -22,11 +22,22 @@ function listacteurs()
     require('view/frontend/listActeursView.php'); 
 }
 
-//Action = Register 
-function postRegistration($name, $firstname, $username, $password, $password_confirm, $question, $reply){
+//Admin = Addmember
+function postAddMember($username, $password, $password_confirm, $role){
+    
     $memberManager = new MemberManager();
 
-    $affectLines = $memberManager->addMember($name, $firstname, $username, $password, $password_confirm, $question, $reply);
+    $adminAddMember = $memberManager->adminAddMember($username, $password, $password_confirm, $role);
+}
+function addMember(){
+    require 'view/admin/addMemberView.php';
+}
+
+//Action = Register 
+function postRegistration($name, $firstname, $question, $reply){
+    $memberManager = new MemberManager();
+
+    $affectLines = $memberManager->addMember($name, $firstname, $question, $reply);
 }
 function registration($e){
 

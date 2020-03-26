@@ -8,6 +8,7 @@
                     <span><?=$_SESSION['auth']['firstname'] . ' ' . $_SESSION['auth']['name']?></span>
                     <ul id="sub_menu">
                         <li><a href="index.php?action=account">Mon profil</a></li>
+                        <?php if ($_SESSION['auth']['role'] == 'admin') { echo '<li><a href="index.php?admin=addmember">Membres</a></li> ';} ?>
                         <li><a href="index.php?action=logout">Déconnexion</a></li>
                     </ul>
                 </li>
@@ -18,10 +19,6 @@
         <nav id="menu">
             <ul class="row align-items-center justify-content-between">
                 <li class="col-12 col-md-8 col-lg-9 col-xl-10"><a href="index.php"><img id="logo_header" src="public/image/logo_gbaf.png"></a></li>
-                <li id="nav_connect" class="col-12 col-md-4 col-lg-3 col-xl-2">
-                    <a href="index.php">S'identifier</a>
-                    <a href="index.php?action=register">S'inscrire</a>
-                </li>
             </ul>
         </nav>
 

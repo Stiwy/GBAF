@@ -22,7 +22,7 @@
             </div>
             <div id="show_profile_user">
                 <p id="username_account"><?= $_SESSION['auth']['username'] ?></p>
-                <p id="details">Utilisateur du sérvice GBAF</p>
+                <p id="details"><?= ($_SESSION['auth']['role'] == 'admin')? 'Administrateur' : 'Utilisateur'; ?> du sérvice GBAF</p>
             </div>
         </div>
 

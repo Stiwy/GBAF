@@ -7,7 +7,7 @@ footer {
     margin-top: 20px;
 }
 
-.fixed {
+.fixed, .fixed-login, .fixed-register {
     position: fixed;
     bottom: 0em;
 }
@@ -44,6 +44,17 @@ footer > a:hover {
     font-weight: bold;
 }
 
+/*Descktop screen and (max-height: 850px) */
+
+@media screen and (max-height: 850px) {
+
+    .fixed-register {
+        margin-top: 20px;
+        position: static;
+        bottom: 0em;
+    }
+  }
+
   /*Descktop screen and (max-height: 700px) */
 
   @media screen and (max-height: 700px) {
@@ -60,6 +71,17 @@ footer > a:hover {
         bottom: 0em;
     }
   }
+
+    /*Descktop screen and (max-height: 640px) */
+
+    @media screen and (max-height: 640px) {
+
+        .fixed-login {
+            margin-top: 20px;
+            position: static;
+            bottom: 0em;
+        }
+      }
 
   /*Descktop screen and (max-width: 700px) */
 

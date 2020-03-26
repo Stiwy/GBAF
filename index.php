@@ -3,7 +3,26 @@ require('controller/frontend.php');
 
 if (session_status() == PHP_SESSION_NONE){session_start();}
 
-if (isset($_GET['action'])){
+if (isset($_GET['admin'])) {
+
+    if ($_SESSION['auth']['role'] == "admin") {
+
+        if ($_GET['admin'] == 'addmember'){
+
+            if ($_POST){
+                postAddMember($_POST['username'], $_POST['password'], $_POST['password_confirm'], $_POST['role']);
+            }else {
+                addMember();
+            }
+        }else {
+            listActeurs();
+        }
+
+    }else {
+        index();
+    }
+
+}elseif (isset($_GET['action'])){
 
     // Is not connect
     if (!isset($_SESSION['auth'])) {
@@ -12,7 +31,7 @@ if (isset($_GET['action'])){
         if ($_GET['action'] == 'register'){
             if ($_POST){
                 if (isset($_POST['cg'])) { 
-                    postRegistration($_POST['name'], $_POST['firstname'], $_POST['username'], $_POST['password'], $_POST['password_confirm'], $_POST['question'], $_POST['reply']);
+                    postRegistration($_POST['name'], $_POST['firstname'], $_POST['question'], $_POST['reply']);
                 }else {
                     registration($e = 1);
                 }
@@ -74,7 +93,7 @@ if (isset($_GET['action'])){
         //Action = Editpassword
         }elseif($_GET['action'] == 'editpassword') {
             if ($_POST) {
-                    editpassword($_SESSION['auth']['username'], $_POST['password_old'], $_POST['password'], $_POST['password_confirm']);
+                postEditpassword($_SESSION['auth']['username'], $_POST['password_old'], $_POST['password'], $_POST['password_confirm']);
             }else {
                 editPassword();
             }

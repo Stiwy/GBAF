@@ -9,12 +9,8 @@
     
     <div class="my-5">
 
-        <h1 class="primary_h1 mb-5">S'inscrire</h1>
+        <h1 class="primary_h1">S'inscrire</h1>
         <h3 class="primary_h3 mb-5">Inscrivez-vous pour acceder à l'espace extranet</h3>
-
-        <div class="ml-5 mt-3 mb-3">
-            <a class="btn btn-danger btn-sm" href="index.php" role="button">Déjà inscrit ?</a>
-        </div>
 
         <form method="post" action="index.php?action=register" class="was-validated">
             <div class="primary_input input-group">
@@ -31,35 +27,6 @@
                 </div>
                 <input type="text" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="firstname" id="firstname" placeholder="Prénom" minlength="3" maxlength="15" <?php if (isset($_SESSION['input']['firstname'])) {echo 'value="' . $_SESSION['input']['firstname'] . '"';}?> required>
                 <div class="invalid-feedback">Veuillez saisir votre prénom.</div>
-            </div>
-
-            <div class="primary_input input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><img src="node_modules/bootstrap-icons/icons/person-fill.svg" alt=""></span>
-                </div>
-                <input type="text" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="username" id="username" placeholder="Nom d'utilisateur" minlength="3" maxlength="25" <?php if (isset($_SESSION['input']['username'])) {echo 'value="' . $_SESSION['input']['username'] . '"';}?> required>
-                <div class="invalid-feedback">Veuillez saisir votre nom d'utilisateur.</div>
-            </div>
-
-            <div class="primary_input input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <abbr title="Un mot de passe valide aura : 
-                - de 8 à 15 caractères
-                - au moins une lettre minuscule
-                - au moins une lettre majuscule
-                - au moins un chiffre
-                - au moins un de ces caractères spéciaux: $ @ % * + - _ !"><img src="node_modules/bootstrap-icons/icons/lock-fill.svg" alt=""></abbr></span>
-                </div>
-                <input type="password" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="password" id="password" placeholder="Mot de passe" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$" required>
-                <div class="invalid-feedback">Veuillez saisir votre Mot de passe.</div>
-            </div>
-
-            <div class="primary_input input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><img src="node_modules/bootstrap-icons/icons/lock-fill.svg" alt=""></span>
-                </div>
-                <input type="password" class="form-control form-control-md" aria-describedby="inputGroupPrepend" name="password_confirm" id="password_confirm" placeholder="Confirmer le mot de passe" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$" required>
-                <div class="invalid-feedback">Veuillez saisir à nouveau votre mot de passe.</div>
             </div>
 
             <div class="primary_input input-group">
@@ -102,6 +69,6 @@
     
 <?php $content = ob_get_clean(); ?>
 
-<?php $footer = 'static';?>
+<?php $footer = 'fixed-register';?>
 
 <?php require('view/template.php'); ?>

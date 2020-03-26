@@ -40,24 +40,15 @@ header {
     padding: 10px 40px 10px 40px;
 }
 
+#sub_menu li a{
+    color: white;
+}
+
 #sub_menu li a:hover{
     padding-left: 10px;
     border-left: 1px solid red;
     text-decoration: none;
     font-size: 1.1em;
-}
-
-/*-----Is not connect-----*/
-
-#menu li a {
-    margin-right: 15px;
-    color: white;
-}
-
-#nav_connect > a:hover {
-    font-size: 1.1em;
-    border-top: 2px solid red;
-    text-decoration: none;
 }
 
 @media screen and (max-width: 10240px) {
