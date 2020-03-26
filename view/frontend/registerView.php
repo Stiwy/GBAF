@@ -9,7 +9,7 @@
     
     <div class="my-5">
 
-        <h1 class="primary_h1">S'inscrire</h1>
+        <h1 class="primary_h1 mb-5">S'inscrire</h1>
         <h3 class="primary_h3 mb-5">Inscrivez-vous pour acceder à l'espace extranet</h3>
 
         <div class="ml-5 mt-3 mb-3">
